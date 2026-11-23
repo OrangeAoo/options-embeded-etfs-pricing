@@ -1,0 +1,11 @@
+---
+description: Use data/sheets/ only; never read Project10 xlsx from code
+alwaysApply: true
+---
+
+# Data source rule
+
+- Runtime data I/O uses **only** `data/sheets/` (`ETF_List.csv`, `Option_Book_Copy.csv`, `Underlying_Market_Copy.csv`, `holdings/*.csv`).
+- Do **not** read or write `data/Project10_ETF_List.xlsx` from code.
+- Entry point: `pipeline.build_from_sheets()`.
+- See `CLAUDE.md` and `data/sheets/README.md`.

@@ -1,0 +1,21 @@
+Ticker,Bloomberg ID,Fund Name,AUM (USD mn),Strategy (preliminary),Underlying (preliminary),Source / Status
+JEPI,JEPI US Equity,JPMorgan Equity Premium Income ETF,45168.984,ELN income,S&P 500 Index (via ELNs),AUM: ETFpool.xlsx; fund details: Project 10
+JEPQ,JEPQ US Equity,JPMorgan Nasdaq Equity Premium Income ETF,40419.164,ELN income,Nasdaq 100 Index (ELNs),AUM: ETFpool.xlsx; fund details: Project 10
+BOXX,BOXX US Equity,Alpha Architect 1-3 Month Box ETF,14601.127,Box spread,SPX,AUM: ETFpool.xlsx; fund details: Project 10
+QQQI,QQQI US Equity,NEOS Nasdaq 100 High Income ETF,14467.057,Index option income,Nasdaq-100 Index,AUM: ETFpool.xlsx; fund details: Project 10
+SPYI,SPYI US Equity,NEOS S&P 500 High Income ETF,12195.136,Index option income,S&P 500 Index,AUM: ETFpool.xlsx; fund details: Project 10
+BUFR,BUFR US Equity,FT Vest Fund of Buffer ETF,10729.497,Buffer fund of funds,SPY (via 12 underlying buffer ETFs),AUM: ETFpool.xlsx; fund details: Project 10
+QYLD,QYLD US Equity,Global X Nasdaq 100 Covered Call ETF,7740.906,Index covered call,Nasdaq-100 Index,AUM: ETFpool.xlsx; fund details: Project 10
+DIVO,DIVO US Equity,Amplify CWP Enhanced Dividend Income ETF,7606.742,Tactical single-stock covered call,Individual stocks,AUM: ETFpool.xlsx; fund details: Project 10
+GPIX,GPIX US Equity,Goldman Sachs S&P 500 Core Premium Income ETF,6386.987,Active option income,S&P 500 (options on an S&P 500 ETF),AUM: ETFpool.xlsx; fund details: Project 10
+GPIQ,GPIQ US Equity,Goldman Sachs Nasdaq 100 Core Premium Income ETF,6215.317,Active option income,Nasdaq-100 (options on a Nasdaq-100 ETF),AUM: ETFpool.xlsx; fund details: Project 10
+HELO,HELO US Equity,JPMorgan Hedged Equity Laddered Overlay ETF,4717.612,Laddered collar / hedged equity,S&P 500 ETFs and S&P 500 Index,AUM: ETFpool.xlsx; fund details: Project 10
+KNG,KNG US Equity,FT Vest S&P 500 Dividend Aristocrats Target Income ETF,3355.024,Dividend-stock covered call,Individual stocks (S&P 500 Dividend Aristocrats constituents),AUM: ETFpool.xlsx; fund details: Project 10
+BALT,BALT US Equity,Innovator Defined Wealth Shield ETF,3288.899,Shield/defined outcome,SPY,AUM: ETFpool.xlsx; fund details: Project 10
+XYLD,XYLD US Equity,Global X S&P 500 Covered Call ETF,3187.283,Index covered call,S&P 500 Index,AUM: ETFpool.xlsx; fund details: Project 10
+ACYN,ACYN US Equity,FT Vest Laddered Autocallable Barrier & Income ETF,2821.687,Autocallable,"NDX, RTY, SPX (worst-of basket)",AUM: ETFpool.xlsx; fund details: Project 10
+FTHI,FTHI US Equity,First Trust BuyWrite Income ETF,2420.448,Buy-write income,S&P 500 Index,AUM: ETFpool.xlsx; fund details: Project 10
+FNOV,FNOV US Equity,FT Vest U.S. Equity Buffer ETF - November,2203.959,Buffer tranche,SPY,AUM: ETFpool.xlsx; fund details: Project 10
+ACIO,ACIO US Equity,Aptus Collared Income Opportunity ETF,2247.165,Collar income,S&P 500 Index (puts) + single stocks (calls),AUM: ETFpool.xlsx; fund details: Project 10
+BUFD,BUFD US Equity,FT Vest Fund of Deep Buffer ETFs,2181.165,Deep-buffer fund of funds,SPY (via 12 underlying deep buffer ETFs),AUM: ETFpool.xlsx; fund details: Project 10
+SFLR,SFLR US Equity,Innovator Equity Managed Floor ETF,2147.53,Managed floor,S&P 500 Index,AUM: ETFpool.xlsx; fund details: Project 10
