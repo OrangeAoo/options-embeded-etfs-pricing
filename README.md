@@ -46,22 +46,12 @@ Funds without holdings are `skipped` in `coverage` (prospectus inference later).
 
 ## Layout
 
-```
-data/sheets/                runtime CSVs only
-core/
-  data_io.py                loaders for data/sheets/
-  pipeline.py               observed holdings → book + coverage
-  greek_engine.py           BSM + dollar Greeks + ladders
-  vol_surface.py            optional surfaces (sheets use IV_MID)
-  parsers.py                Bloomberg / FLEX ticker parser
-  infer_holdings.py         prospectus inference (deferred)
-  impact.py                 SPX/NDX shock stub
-examples/
-  pipeline_demo.ipynb       one fund (BALT) end to end
-  universe_overview.ipynb   full universe aggregates (observed only)
-scripts/export_sheets_from_xlsx.py
-tests/
-CLAUDE.md
+```text
+./
+├── data/       # universe, holdings, ...
+├── core/       # BS pricing, Greeks, prospectus -> holdings, SPX/NDX shocks, IV/Greeks impact
+├── examples/   # demos & visualizations (universe, pipeline, shock analysis)
+└── README.md   # project & pipeline overview
 ```
 
 ## Conventions
