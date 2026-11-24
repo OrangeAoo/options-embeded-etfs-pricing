@@ -1,0 +1,2140 @@
+{
+  "research_date_new_york": "2026-11-23",
+  "base_project_valuation_date": "2026-11-20",
+  "scope": "Supplemental public issuer evidence only; no source data or original pricing pipeline is changed.",
+  "provenance_note": "Four issuer XLSX downloads are byte-preserved. ACYN facts are extracted from dated public holdings tables and the public scatter-chart tooltip records. Source response SHA-256 hashes identify those captures.",
+  "project_greeks_recomputed": false,
+  "funds": {
+    "JEPI": {
+      "holdings_asof": "2026-11-23",
+      "issuer_risk_asof": "2026-11-23",
+      "eln_holdings_count": 15,
+      "eln_risk_record_count": 14,
+      "unmatched_holdings": [
+        "SPX_1"
+      ],
+      "unmatched_risk_rows": [],
+      "join_key_note": "Fund plus unique security-name alias plus date; the holdings XLSX does not supply the risk table Security ID. Alias matching is provisional for security-master mapping.",
+      "base_date_compatible": false,
+      "ready_for_full_fund_greeks": false,
+      "missing_inputs": [
+        "November 20 holdings/risk snapshot, or a coordinated rebase of the whole project to November 23",
+        "Unit delta/gamma normalization and shares/par-to-option-equivalent scale",
+        "One unmatched ELN risk row",
+        "ELN vega or enough actual contract terms for independent valuation",
+        "Actual note identifiers, strikes, expiry, participation/overwrite and payoff terms"
+      ],
+      "records": [
+        {
+          "security_name": "SPX_28",
+          "shares_par_as_reported": 62257.0,
+          "market_value_usd": 461617786.86,
+          "weight_net_assets_as_reported": "1.02%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994073",
+            "security_name": "SPX_28",
+            "estimated_equivalent_unit_delta_as_reported": -0.347,
+            "estimated_equivalent_unit_gamma_as_reported": -0.352,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_29",
+          "shares_par_as_reported": 62401.0,
+          "market_value_usd": 459997090.9,
+          "weight_net_assets_as_reported": "1.01%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994074",
+            "security_name": "SPX_29",
+            "estimated_equivalent_unit_delta_as_reported": -0.525,
+            "estimated_equivalent_unit_gamma_as_reported": -0.361,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_25",
+          "shares_par_as_reported": 60897.0,
+          "market_value_usd": 455250387.71,
+          "weight_net_assets_as_reported": "1.0%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994070",
+            "security_name": "SPX_25",
+            "estimated_equivalent_unit_delta_as_reported": 0.51,
+            "estimated_equivalent_unit_gamma_as_reported": -0.217,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_30",
+          "shares_par_as_reported": 63686.0,
+          "market_value_usd": 454338330.26,
+          "weight_net_assets_as_reported": "1.0%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994075",
+            "security_name": "SPX_30",
+            "estimated_equivalent_unit_delta_as_reported": -1.268,
+            "estimated_equivalent_unit_gamma_as_reported": -0.382,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_27",
+          "shares_par_as_reported": 60323.0,
+          "market_value_usd": 452089206.99,
+          "weight_net_assets_as_reported": "1.0%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994072",
+            "security_name": "SPX_27",
+            "estimated_equivalent_unit_delta_as_reported": 0.609,
+            "estimated_equivalent_unit_gamma_as_reported": -0.176,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_26",
+          "shares_par_as_reported": 60110.0,
+          "market_value_usd": 449852536.89,
+          "weight_net_assets_as_reported": "0.99%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994071",
+            "security_name": "SPX_26",
+            "estimated_equivalent_unit_delta_as_reported": 0.757,
+            "estimated_equivalent_unit_gamma_as_reported": -0.135,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_24",
+          "shares_par_as_reported": 60378.0,
+          "market_value_usd": 446155075.04,
+          "weight_net_assets_as_reported": "0.98%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994069",
+            "security_name": "SPX_24",
+            "estimated_equivalent_unit_delta_as_reported": -0.002,
+            "estimated_equivalent_unit_gamma_as_reported": -0.367,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_22",
+          "shares_par_as_reported": 58661.0,
+          "market_value_usd": 436001181.41,
+          "weight_net_assets_as_reported": "0.96%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994067",
+            "security_name": "SPX_22",
+            "estimated_equivalent_unit_delta_as_reported": 0.857,
+            "estimated_equivalent_unit_gamma_as_reported": -0.101,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_23",
+          "shares_par_as_reported": 57748.0,
+          "market_value_usd": 429101346.46,
+          "weight_net_assets_as_reported": "0.95%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994068",
+            "security_name": "SPX_23",
+            "estimated_equivalent_unit_delta_as_reported": 0.922,
+            "estimated_equivalent_unit_gamma_as_reported": -0.057,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_18",
+          "shares_par_as_reported": 54936.0,
+          "market_value_usd": 402121892.05,
+          "weight_net_assets_as_reported": "0.89%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994063",
+            "security_name": "SPX_18",
+            "estimated_equivalent_unit_delta_as_reported": 0.995,
+            "estimated_equivalent_unit_gamma_as_reported": -0.007,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_17",
+          "shares_par_as_reported": 54273.0,
+          "market_value_usd": 396186971.65,
+          "weight_net_assets_as_reported": "0.87%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994062",
+            "security_name": "SPX_17",
+            "estimated_equivalent_unit_delta_as_reported": 1.0,
+            "estimated_equivalent_unit_gamma_as_reported": -0.001,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_21",
+          "shares_par_as_reported": 52459.0,
+          "market_value_usd": 387265988.16,
+          "weight_net_assets_as_reported": "0.85%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994066",
+            "security_name": "SPX_21",
+            "estimated_equivalent_unit_delta_as_reported": 0.978,
+            "estimated_equivalent_unit_gamma_as_reported": -0.022,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_20",
+          "shares_par_as_reported": 52298.0,
+          "market_value_usd": 385550720.33,
+          "weight_net_assets_as_reported": "0.85%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994065",
+            "security_name": "SPX_20",
+            "estimated_equivalent_unit_delta_as_reported": 0.987,
+            "estimated_equivalent_unit_gamma_as_reported": -0.014,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_19",
+          "shares_par_as_reported": 52444.0,
+          "market_value_usd": 385131053.16,
+          "weight_net_assets_as_reported": "0.85%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPH994064",
+            "security_name": "SPX_19",
+            "estimated_equivalent_unit_delta_as_reported": 0.988,
+            "estimated_equivalent_unit_gamma_as_reported": -0.013,
+            "reference_price": 7251.98,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "SPX_1",
+          "shares_par_as_reported": 52506.0,
+          "market_value_usd": 379994848.02,
+          "weight_net_assets_as_reported": "0.84%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "missing_issuer_risk_row",
+          "issuer_risk": null
+        }
+      ]
+    },
+    "JEPQ": {
+      "holdings_asof": "2026-11-23",
+      "issuer_risk_asof": "2026-11-23",
+      "eln_holdings_count": 15,
+      "eln_risk_record_count": 14,
+      "unmatched_holdings": [
+        "NDX_4"
+      ],
+      "unmatched_risk_rows": [],
+      "join_key_note": "Fund plus unique security-name alias plus date; the holdings XLSX does not supply the risk table Security ID. Alias matching is provisional for security-master mapping.",
+      "base_date_compatible": false,
+      "ready_for_full_fund_greeks": false,
+      "missing_inputs": [
+        "November 20 holdings/risk snapshot, or a coordinated rebase of the whole project to November 23",
+        "Unit delta/gamma normalization and shares/par-to-option-equivalent scale",
+        "One unmatched ELN risk row",
+        "ELN vega or enough actual contract terms for independent valuation",
+        "Actual note identifiers, strikes, expiry, participation/overwrite and payoff terms"
+      ],
+      "records": [
+        {
+          "security_name": "NDX_18",
+          "shares_par_as_reported": 17149.0,
+          "market_value_usd": 474677065.61,
+          "weight_net_assets_as_reported": "1.17%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0487",
+            "security_name": "NDX_18",
+            "estimated_equivalent_unit_delta_as_reported": 0.76,
+            "estimated_equivalent_unit_gamma_as_reported": -0.109,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_19",
+          "shares_par_as_reported": 17033.0,
+          "market_value_usd": 474587091.36,
+          "weight_net_assets_as_reported": "1.17%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0488",
+            "security_name": "NDX_19",
+            "estimated_equivalent_unit_delta_as_reported": 0.849,
+            "estimated_equivalent_unit_gamma_as_reported": -0.077,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_4",
+          "shares_par_as_reported": 17572.0,
+          "market_value_usd": 469982469.2,
+          "weight_net_assets_as_reported": "1.15%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "missing_issuer_risk_row",
+          "issuer_risk": null
+        },
+        {
+          "security_name": "NDX_20",
+          "shares_par_as_reported": 16879.0,
+          "market_value_usd": 469811450.87,
+          "weight_net_assets_as_reported": "1.15%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0489",
+            "security_name": "NDX_20",
+            "estimated_equivalent_unit_delta_as_reported": 0.834,
+            "estimated_equivalent_unit_gamma_as_reported": -0.078,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_22",
+          "shares_par_as_reported": 16942.0,
+          "market_value_usd": 469338399.74,
+          "weight_net_assets_as_reported": "1.15%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0491",
+            "security_name": "NDX_22",
+            "estimated_equivalent_unit_delta_as_reported": 0.256,
+            "estimated_equivalent_unit_gamma_as_reported": -0.199,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_21",
+          "shares_par_as_reported": 16841.0,
+          "market_value_usd": 467231680.43,
+          "weight_net_assets_as_reported": "1.15%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0490",
+            "security_name": "NDX_21",
+            "estimated_equivalent_unit_delta_as_reported": 0.403,
+            "estimated_equivalent_unit_gamma_as_reported": -0.177,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_23",
+          "shares_par_as_reported": 16564.0,
+          "market_value_usd": 466414441.25,
+          "weight_net_assets_as_reported": "1.15%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0492",
+            "security_name": "NDX_23",
+            "estimated_equivalent_unit_delta_as_reported": 0.608,
+            "estimated_equivalent_unit_gamma_as_reported": -0.128,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_13",
+          "shares_par_as_reported": 16954.0,
+          "market_value_usd": 459437741.51,
+          "weight_net_assets_as_reported": "1.13%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0482",
+            "security_name": "NDX_13",
+            "estimated_equivalent_unit_delta_as_reported": 1.0,
+            "estimated_equivalent_unit_gamma_as_reported": 0.0,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_15",
+          "shares_par_as_reported": 16738.0,
+          "market_value_usd": 457486657.19,
+          "weight_net_assets_as_reported": "1.12%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0484",
+            "security_name": "NDX_15",
+            "estimated_equivalent_unit_delta_as_reported": 1.0,
+            "estimated_equivalent_unit_gamma_as_reported": 0.0,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_14",
+          "shares_par_as_reported": 16765.0,
+          "market_value_usd": 455750231.97,
+          "weight_net_assets_as_reported": "1.12%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0483",
+            "security_name": "NDX_14",
+            "estimated_equivalent_unit_delta_as_reported": 1.0,
+            "estimated_equivalent_unit_gamma_as_reported": 0.0,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_3",
+          "shares_par_as_reported": 16595.0,
+          "market_value_usd": 454959131.58,
+          "weight_net_assets_as_reported": "1.12%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0495",
+            "security_name": "NDX_3",
+            "estimated_equivalent_unit_delta_as_reported": -0.502,
+            "estimated_equivalent_unit_gamma_as_reported": -0.255,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_2",
+          "shares_par_as_reported": 16665.0,
+          "market_value_usd": 454483938.79,
+          "weight_net_assets_as_reported": "1.12%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0494",
+            "security_name": "NDX_2",
+            "estimated_equivalent_unit_delta_as_reported": -0.545,
+            "estimated_equivalent_unit_gamma_as_reported": -0.262,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_1",
+          "shares_par_as_reported": 16545.0,
+          "market_value_usd": 452887458.41,
+          "weight_net_assets_as_reported": "1.11%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0493",
+            "security_name": "NDX_1",
+            "estimated_equivalent_unit_delta_as_reported": -0.35,
+            "estimated_equivalent_unit_gamma_as_reported": -0.253,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_17",
+          "shares_par_as_reported": 16435.0,
+          "market_value_usd": 452833965.25,
+          "weight_net_assets_as_reported": "1.11%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0486",
+            "security_name": "NDX_17",
+            "estimated_equivalent_unit_delta_as_reported": 1.0,
+            "estimated_equivalent_unit_gamma_as_reported": 0.0,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        },
+        {
+          "security_name": "NDX_16",
+          "shares_par_as_reported": 16525.0,
+          "market_value_usd": 452225018.33,
+          "weight_net_assets_as_reported": "1.11%",
+          "method_as_reported": "Synthetic",
+          "coupon_raw": 0.0,
+          "maturity_raw": "",
+          "effective_date_raw": "",
+          "contract_size_raw": "",
+          "strike_price_raw": 0.0,
+          "terms_status": "Zero coupon/strike and empty dates/size in this generic holdings export are unconfirmed/unpopulated fields, not validated contract terms.",
+          "greeks_match_status": "matched_by_unique_name_within_same_fund_and_date",
+          "issuer_risk": {
+            "security_id_as_reported": "JPNDX0485",
+            "security_name": "NDX_16",
+            "estimated_equivalent_unit_delta_as_reported": 1.0,
+            "estimated_equivalent_unit_gamma_as_reported": 0.0,
+            "reference_price": 26767.82,
+            "reference_time_as_reported": "20:00 PM EST: 11/23/2026",
+            "reference_date": "2026-11-23",
+            "vega": null,
+            "dollar_conversion_status": "Unit/normalization basis and option-equivalent scale require confirmation; no 100x listed-option multiplier is assumed."
+          }
+        }
+      ]
+    },
+    "ACYN": {
+      "holdings_asof": "2026-11-20",
+      "chart_asof": "2026-11-20",
+      "base_date_compatible": true,
+      "holdings_row_count": 7,
+      "derivative_rows": [
+        {
+          "name": "ACYN Autocall Derivative BNP",
+          "identifier": "ACYNBNP01",
+          "cusip": "",
+          "quantity": 879228611.0,
+          "market_value_usd": -44719334.44,
+          "weight_pct": -1.62,
+          "quantity_unit_status": "Shares/Quantity header only; confirm this is USD notional and obtain component allocation."
+        },
+        {
+          "name": "ACYN Autocall Derivative JPMorgan",
+          "identifier": "ACYNJPM01",
+          "cusip": "",
+          "quantity": 877524530.0,
+          "market_value_usd": -50351278.12,
+          "weight_pct": -1.83,
+          "quantity_unit_status": "Shares/Quantity header only; confirm this is USD notional and obtain component allocation."
+        },
+        {
+          "name": "ACYN Autocall Derivative Citi",
+          "identifier": "ACYNCIT01",
+          "cusip": "",
+          "quantity": 1145301818.0,
+          "market_value_usd": -54236489.09,
+          "weight_pct": -1.97,
+          "quantity_unit_status": "Shares/Quantity header only; confirm this is USD notional and obtain component allocation."
+        }
+      ],
+      "all_holdings": [
+        {
+          "name": "U.S. Treasury Bill, 0%, due 12/31/2026",
+          "identifier": "",
+          "cusip": "912797VJ3",
+          "quantity": 979055600.0,
+          "market_value_usd": 974852054.13,
+          "weight_pct": 35.39
+        },
+        {
+          "name": "U.S. Treasury Bill, 0%, due 11/27/2026",
+          "identifier": "",
+          "cusip": "912797SU2",
+          "quantity": 973473000.0,
+          "market_value_usd": 973046297.57,
+          "weight_pct": 35.32
+        },
+        {
+          "name": "U.S. Treasury Bill, 0%, due 01/28/2027",
+          "identifier": "",
+          "cusip": "912797VU8",
+          "quantity": 956314600.0,
+          "market_value_usd": 949162590.89,
+          "weight_pct": 34.46
+        },
+        {
+          "name": "US Dollar",
+          "identifier": "$USD",
+          "cusip": "",
+          "quantity": 6892805.0,
+          "market_value_usd": 6892805.09,
+          "weight_pct": 0.25
+        },
+        {
+          "name": "ACYN Autocall Derivative BNP",
+          "identifier": "ACYNBNP01",
+          "cusip": "",
+          "quantity": 879228611.0,
+          "market_value_usd": -44719334.44,
+          "weight_pct": -1.62,
+          "quantity_unit_status": "Shares/Quantity header only; confirm this is USD notional and obtain component allocation."
+        },
+        {
+          "name": "ACYN Autocall Derivative JPMorgan",
+          "identifier": "ACYNJPM01",
+          "cusip": "",
+          "quantity": 877524530.0,
+          "market_value_usd": -50351278.12,
+          "weight_pct": -1.83,
+          "quantity_unit_status": "Shares/Quantity header only; confirm this is USD notional and obtain component allocation."
+        },
+        {
+          "name": "ACYN Autocall Derivative Citi",
+          "identifier": "ACYNCIT01",
+          "cusip": "",
+          "quantity": 1145301818.0,
+          "market_value_usd": -54236489.09,
+          "weight_pct": -1.97,
+          "quantity_unit_status": "Shares/Quantity header only; confirm this is USD notional and obtain component allocation."
+        }
+      ],
+      "current_fund_data_as_reported": [
+        {
+          "label": "Closing NAV 1",
+          "value_as_reported": "$19.40"
+        },
+        {
+          "label": "Closing Market Price 2",
+          "value_as_reported": "$19.55"
+        },
+        {
+          "label": "Bid/Ask Midpoint",
+          "value_as_reported": "$19.54"
+        },
+        {
+          "label": "Bid/Ask Premium",
+          "value_as_reported": "0.72%"
+        },
+        {
+          "label": "30-Day Median Bid/Ask Spread 3",
+          "value_as_reported": "0.05%"
+        },
+        {
+          "label": "Total Net Assets",
+          "value_as_reported": "$2,743,733,849"
+        },
+        {
+          "label": "Outstanding Shares",
+          "value_as_reported": "141,400,002"
+        },
+        {
+          "label": "Daily Volume",
+          "value_as_reported": "5,658,526"
+        },
+        {
+          "label": "Average 30-Day Daily Volume",
+          "value_as_reported": "2,628,168"
+        },
+        {
+          "label": "Closing Market Price 52-Week High/Low",
+          "value_as_reported": "$20.92 / $19.55"
+        },
+        {
+          "label": "Closing NAV 52-Week High/Low",
+          "value_as_reported": "$20.75 / $19.40"
+        },
+        {
+          "label": "Number of Holdings (excluding cash)",
+          "value_as_reported": "3"
+        }
+      ],
+      "synthetic_contract_count": 24,
+      "chart_records_as_reported": [
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 24",
+          "MaturityDate": "8/15/2028",
+          "MarkToMarket": -0.0767,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 20.829568788501028,
+          "y": -16.56,
+          "DaysToNextCallObservation": 84,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1656,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1556,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.1078,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 634,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1656,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "8/17/2026",
+          "Coupon": 0.1088,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 24",
+          "NextObservationDate": "2/12/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 22",
+          "MaturityDate": "7/14/2028",
+          "MarkToMarket": -0.0495,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 19.7782340862423,
+          "y": -13.77,
+          "DaysToNextCallObservation": 56,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1377,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.132,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0827,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 602,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1377,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "7/16/2026",
+          "Coupon": 0.1183,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 22",
+          "NextObservationDate": "1/15/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 20",
+          "MaturityDate": "6/15/2028",
+          "MarkToMarket": -0.0509,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 18.82546201232033,
+          "y": -16.48,
+          "DaysToNextCallObservation": 25,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1648,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1216,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.08,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 573,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1648,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "6/16/2026",
+          "Coupon": 0.1173,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 20",
+          "NextObservationDate": "12/15/2026"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 18",
+          "MaturityDate": "5/15/2028",
+          "MarkToMarket": -0.077,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 17.806981519507186,
+          "y": -16.56,
+          "DaysToNextCallObservation": 84,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1656,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1556,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.1078,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 542,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1656,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "8/17/2026",
+          "Coupon": 0.1081,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 18",
+          "NextObservationDate": "2/12/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 16",
+          "MaturityDate": "4/13/2028",
+          "MarkToMarket": -0.0486,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 16.75564681724846,
+          "y": -13.77,
+          "DaysToNextCallObservation": 56,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1377,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.132,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0827,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 510,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1377,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "7/16/2026",
+          "Coupon": 0.1184,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 16",
+          "NextObservationDate": "1/15/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 14",
+          "MaturityDate": "3/15/2028",
+          "MarkToMarket": -0.0503,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 15.80287474332649,
+          "y": -16.48,
+          "DaysToNextCallObservation": 25,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1648,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1216,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.08,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 481,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1648,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "6/16/2026",
+          "Coupon": 0.1171,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 14",
+          "NextObservationDate": "12/15/2026"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 12",
+          "MaturityDate": "2/15/2028",
+          "MarkToMarket": -0.0756,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 14.850102669404517,
+          "y": -16.56,
+          "DaysToNextCallObservation": 84,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1656,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1556,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.1078,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 452,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1656,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "8/17/2026",
+          "Coupon": 0.1076,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 12",
+          "NextObservationDate": "2/12/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 10",
+          "MaturityDate": "1/14/2028",
+          "MarkToMarket": -0.0492,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 13.79876796714579,
+          "y": -13.77,
+          "DaysToNextCallObservation": 56,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1377,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.132,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0827,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 420,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1377,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "7/16/2026",
+          "Coupon": 0.118,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 10",
+          "NextObservationDate": "1/15/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 8",
+          "MaturityDate": "12/15/2027",
+          "MarkToMarket": -0.0486,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 12.813141683778234,
+          "y": -16.48,
+          "DaysToNextCallObservation": 25,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1648,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1216,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.08,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 390,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1648,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "6/16/2026",
+          "Coupon": 0.117,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 8",
+          "NextObservationDate": "12/15/2026"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 6",
+          "MaturityDate": "11/15/2027",
+          "MarkToMarket": -0.0749,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 11.827515400410677,
+          "y": -16.56,
+          "DaysToNextCallObservation": 84,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1656,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1556,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.1078,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 360,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1656,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "8/17/2026",
+          "Coupon": 0.1049,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 6",
+          "NextObservationDate": "2/12/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 4",
+          "MaturityDate": "10/15/2027",
+          "MarkToMarket": -0.0479,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 10.809034907597535,
+          "y": -13.77,
+          "DaysToNextCallObservation": 56,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1377,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.132,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0827,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 329,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1377,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "7/16/2026",
+          "Coupon": 0.1167,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 4",
+          "NextObservationDate": "1/15/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 2",
+          "MaturityDate": "9/15/2027",
+          "MarkToMarket": -0.0488,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.3,
+          "x": 9.82340862422998,
+          "y": -16.48,
+          "DaysToNextCallObservation": 25,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1648,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1216,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.08,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 299,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1648,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "6/16/2026",
+          "Coupon": 0.1145,
+          "CouponBarrier": -0.3,
+          "MaturityBuffer": null,
+          "name": "OTC 2",
+          "NextObservationDate": "12/15/2026"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 23",
+          "MaturityDate": "8/1/2028",
+          "MarkToMarket": -0.0551,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 20.369609856262834,
+          "y": -15.82,
+          "DaysToNextCallObservation": 73,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1582,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1499,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.1068,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 620,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1582,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "8/4/2026",
+          "Coupon": 0.1015,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 23",
+          "NextObservationDate": "2/1/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 21",
+          "MaturityDate": "7/3/2028",
+          "MarkToMarket": -0.0404,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 19.416837782340863,
+          "y": -14.66,
+          "DaysToNextCallObservation": 45,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1466,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1383,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0766,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 591,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1466,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "7/2/2026",
+          "Coupon": 0.1066,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 21",
+          "NextObservationDate": "1/4/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 19",
+          "MaturityDate": "6/1/2028",
+          "MarkToMarket": -0.0444,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 18.365503080082135,
+          "y": -18.37,
+          "DaysToNextCallObservation": 11,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1837,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1194,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0919,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 559,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1837,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "6/2/2026",
+          "Coupon": 0.1008,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 19",
+          "NextObservationDate": "12/1/2026"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 17",
+          "MaturityDate": "5/1/2028",
+          "MarkToMarket": -0.0545,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 17.347022587268995,
+          "y": -15.82,
+          "DaysToNextCallObservation": 73,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1582,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1499,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.1068,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 528,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1582,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "8/4/2026",
+          "Coupon": 0.1011,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 17",
+          "NextObservationDate": "2/1/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 15",
+          "MaturityDate": "4/3/2028",
+          "MarkToMarket": -0.0392,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 16.427104722792606,
+          "y": -14.66,
+          "DaysToNextCallObservation": 45,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1466,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1383,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0766,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 500,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1466,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "7/2/2026",
+          "Coupon": 0.1063,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 15",
+          "NextObservationDate": "1/4/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 13",
+          "MaturityDate": "3/1/2028",
+          "MarkToMarket": -0.0432,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 15.342915811088295,
+          "y": -18.37,
+          "DaysToNextCallObservation": 11,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1837,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1194,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0919,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 467,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1837,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "6/2/2026",
+          "Coupon": 0.1006,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 13",
+          "NextObservationDate": "12/1/2026"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 11",
+          "MaturityDate": "2/1/2028",
+          "MarkToMarket": -0.0533,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 14.390143737166325,
+          "y": -15.82,
+          "DaysToNextCallObservation": 73,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1582,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1499,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.1068,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 438,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1582,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "8/4/2026",
+          "Coupon": 0.0997,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 11",
+          "NextObservationDate": "2/1/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 9",
+          "MaturityDate": "1/3/2028",
+          "MarkToMarket": -0.0383,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 13.437371663244353,
+          "y": -14.66,
+          "DaysToNextCallObservation": 45,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1466,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1383,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0766,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 409,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1466,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "7/2/2026",
+          "Coupon": 0.1055,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 9",
+          "NextObservationDate": "1/4/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 7",
+          "MaturityDate": "12/1/2027",
+          "MarkToMarket": -0.04,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 12.353182751540041,
+          "y": -18.37,
+          "DaysToNextCallObservation": 11,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1837,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1194,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0919,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 376,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1837,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "6/2/2026",
+          "Coupon": 0.1003,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 7",
+          "NextObservationDate": "12/1/2026"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 5",
+          "MaturityDate": "11/1/2027",
+          "MarkToMarket": -0.0525,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 11.367556468172484,
+          "y": -15.82,
+          "DaysToNextCallObservation": 73,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1582,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1499,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.1068,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 346,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1582,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "8/4/2026",
+          "Coupon": 0.0963,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 5",
+          "NextObservationDate": "2/1/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 3",
+          "MaturityDate": "10/1/2027",
+          "MarkToMarket": -0.0376,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 10.349075975359343,
+          "y": -14.66,
+          "DaysToNextCallObservation": 45,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1466,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1383,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0766,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 315,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1466,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "7/2/2026",
+          "Coupon": 0.1021,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 3",
+          "NextObservationDate": "1/4/2027"
+        },
+        {
+          "UnderlyingExposureLabel": "Worst Performing<br /> Reference Asset (NDX):",
+          "Name": "OTC 1",
+          "MaturityDate": "9/1/2027",
+          "MarkToMarket": -0.0383,
+          "CallBarrier": 0.0,
+          "MaturityBarrier": -0.35,
+          "x": 9.363449691991786,
+          "y": -18.37,
+          "DaysToNextCallObservation": 11,
+          "UnderlyingReferenceAssets": [
+            {
+              "ReturnPercent": -0.1837,
+              "ReferenceAssetSymbol": "NDX"
+            },
+            {
+              "ReturnPercent": -0.1194,
+              "ReferenceAssetSymbol": "RTY"
+            },
+            {
+              "ReturnPercent": -0.0919,
+              "ReferenceAssetSymbol": "SPX"
+            }
+          ],
+          "RemainingDaysToMaturity": 285,
+          "WorstPerformingUnderlyingExposure": {
+            "ReturnPercent": -0.1837,
+            "ReferenceAssetSymbol": "NDX"
+          },
+          "IssueDate": "6/2/2026",
+          "Coupon": 0.0973,
+          "CouponBarrier": -0.35,
+          "MaturityBuffer": null,
+          "name": "OTC 1",
+          "NextObservationDate": "12/1/2026"
+        }
+      ],
+      "date_and_reference_checks": [
+        {
+          "name": "OTC 24",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 22",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 20",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 18",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 16",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 14",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 12",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 10",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 8",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 6",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 4",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 2",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 23",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 21",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 19",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 17",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 15",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 13",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 11",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 9",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 7",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 5",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 3",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        },
+        {
+          "name": "OTC 1",
+          "maturity_day_count_matches": true,
+          "observation_day_count_matches": true,
+          "reference_assets": [
+            "NDX",
+            "RTY",
+            "SPX"
+          ]
+        }
+      ],
+      "barrier_convention": "Raw chart values are return coordinates relative to the initial strike date: e.g. 0.0 at initial level and -0.30 at a 30% decline. Keep the raw values; confirm payoff and level normalization before pricing.",
+      "mark_to_market_convention": "MarkToMarket is a premium/discount ratio in the chart, not a dollar market value. Do not substitute it for the three swap market values.",
+      "ready_for_full_fund_greeks": false,
+      "missing_inputs": [
+        "Notional/weight of each of the 24 components and allocation across BNP/JPM/Citi swaps",
+        "Absolute initial fixing levels and complete observation, payment, call-protection and coupon-memory schedules",
+        "Funding spread, fees, settlement, accrued cash flows and collateral details",
+        "Same-date multi-index volatility surfaces, forwards/dividends, discount curves, correlations and cross-Greeks"
+      ],
+      "historical_source_conflict": "March holdings and current November chart identify Russell 2000/RTY. The June financial statement writes Russell 1000 in its swap reference description; reconcile with actual confirmations rather than silently substituting either."
+    }
+  },
+  "sources": {
+    "JEPI_holdings": {
+      "url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46641Q332&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false",
+      "retrieved_at_utc": "2026-11-24T04:50:50.877532+00:00",
+      "final_url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46641Q332&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+      "bytes": 26975,
+      "sha256": "d6fbad19f3938686253f1f64d1f9f9b31338ad20dfaabdf54823efe4228e7590",
+      "saved_filename": "shuhao_jepi_holdings_20261123.xlsx"
+    },
+    "JEPI_unit_risk": {
+      "url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=deltaGamma&cusip=46641Q332&country=us&role=adv&locale=en-US",
+      "retrieved_at_utc": "2026-11-24T04:50:50.877067+00:00",
+      "final_url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=deltaGamma&cusip=46641Q332&country=us&role=adv&locale=en-US",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+      "bytes": 12768,
+      "sha256": "07214b6f925b98e820e9dd0e2d9fced3c398a9bb9cf81543e181eadb264fbcd3",
+      "saved_filename": "shuhao_jepi_eln_20261123.xlsx"
+    },
+    "JEPQ_holdings": {
+      "url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46654Q203&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false",
+      "retrieved_at_utc": "2026-11-24T04:50:51.787854+00:00",
+      "final_url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46654Q203&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+      "bytes": 24354,
+      "sha256": "81b22aea516576331523f0108298e1c8e6e851ae0dd8435757096a3703b09993",
+      "saved_filename": "shuhao_jepq_holdings_20261123.xlsx"
+    },
+    "JEPQ_unit_risk": {
+      "url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=deltaGamma&cusip=46654Q203&country=us&role=adv&locale=en-US",
+      "retrieved_at_utc": "2026-11-24T04:50:51.809706+00:00",
+      "final_url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=deltaGamma&cusip=46654Q203&country=us&role=adv&locale=en-US",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+      "bytes": 12724,
+      "sha256": "510cb4a3575de391d153bed5fbe14224a46379dffda22e0cff71b27d6fb3821d",
+      "saved_filename": "shuhao_jepq_eln_20261123.xlsx"
+    },
+    "acyn_holdings": {
+      "url": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ACYN",
+      "retrieved_at_utc": "2026-11-24T04:45:08.894541+00:00",
+      "final_url": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ACYN",
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "7e1159c2c3a95fb0dacdd83b5ca787a33193caa785f897a6f60b3429a187c30b",
+      "bytes": 182621
+    },
+    "acyn_summary": {
+      "url": "https://www.ftportfolios.com/Retail/Etf/EtfSummary.aspx?Ticker=ACYN",
+      "retrieved_at_utc": "2026-11-24T04:51:43.209165+00:00",
+      "final_url": "https://www.ftportfolios.com/Retail/Etf/EtfSummary.aspx?Ticker=ACYN",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 320042,
+      "sha256": "f7b9d5f55414839f690ff941ca27872040a5ca74392eb22e581f7fbe26693ade"
+    },
+    "acyn_quarterly": {
+      "url": "https://www.ftportfolios.com/Common/ContentFileLoader.aspx?ContentGUID=d156ac8a-cdba-477e-b158-7711aa06e45f",
+      "retrieved_at_utc": "2026-11-24T04:45:09.286759+00:00",
+      "final_url": "https://www.ftportfolios.com/Common/ContentFileLoader.aspx?ContentGUID=d156ac8a-cdba-477e-b158-7711aa06e45f",
+      "content_type": "application/pdf",
+      "sha256": "fcedc5b294acb852148607f6dff5990c39ef6f58e7a8c1cad03cd5339924fc30",
+      "bytes": 30287
+    },
+    "acyn_semiannual": {
+      "url": "https://www.ftportfolios.com/Common/ContentFileLoader.aspx?ContentGUID=cd7fb286-a79b-4a84-aae0-18ea2d961f2a",
+      "retrieved_at_utc": "2026-11-24T04:45:09.230053+00:00",
+      "final_url": "https://www.ftportfolios.com/Common/ContentFileLoader.aspx?ContentGUID=cd7fb286-a79b-4a84-aae0-18ea2d961f2a",
+      "content_type": "application/pdf",
+      "sha256": "42737147bc291c14e77cbef2f81bc032f5322517473082f668178cdf9d8a14e8",
+      "bytes": 167219
+    },
+    "acyn_prospectus": {
+      "url": "https://www.ftportfolios.com/Common/ContentFileLoader.aspx?ContentGUID=3cb9857a-4673-4e93-a709-6ab614b6358a",
+      "retrieved_at_utc": "2026-11-24T04:45:09.427595+00:00",
+      "final_url": "https://www.ftportfolios.com/Common/ContentFileLoader.aspx?ContentGUID=3cb9857a-4673-4e93-a709-6ab614b6358a",
+      "content_type": "application/pdf",
+      "sha256": "b89ef61b1a3e111e04f711fac7d5fc8fb30037ab1d1675810f8981e515e5f2f3",
+      "bytes": 376786
+    }
+  },
+  "validation": {
+    "issuer_xlsx_copies_byte_identical": true,
+    "jepi_unique_eln_names_and_date_join": true,
+    "jepq_unique_eln_names_and_date_join": true,
+    "missing_risk_rows_not_filled_with_zero": true,
+    "acyn_24_unique_components_and_date_arithmetic": true,
+    "snapshot_date_mismatch_not_merged": true,
+    "original_input_sha256": {
+      "data/sheets/ETF_List.csv": "d1209e429464ac69d9b433c09d426f80faf5911d8db3c737f99d937f0fba5914",
+      "data/sheets/holdings/JEPI.csv": "26fa8aab9d5320accc3d8c357042daccbc3db32f43273af0b337e7077feb10bb",
+      "data/sheets/holdings/JEPQ.csv": "667c93dff37edc677a1bd50e92b863c015ba550a429a93def96bdf2e1313dda3",
+      "data/sheets/holdings/ACYN.csv": "fd4d00875960fc3489315f96da2d894bf13cdf77ffafaa10b33242360836bb3d"
+    }
+  }
+}
