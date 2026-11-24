@@ -1,0 +1,46 @@
+{
+  "valuation_date": "2026-11-20",
+  "rate": 0.04,
+  "rate_note": "Explicit illustrative flat rate inherited from the prototype; replace with a same-date SOFR curve before final estimates.",
+  "unit_overrides": [
+    {
+      "ticker": "FNOV",
+      "holding_id": "BBG01YQ74CT8 Equity",
+      "expected_raw_position": 3100400,
+      "units": "shares",
+      "status": "provisional_reconciliation",
+      "evidence": "Long put quantity is 100 times the 31,004 short-leg quantity; reported value / raw quantity is 0.12. Requires Bloomberg unit confirmation. Applies only to a derived copy."
+    },
+    {
+      "ticker": "FNOV",
+      "holding_id": "BBG01YQ74700 Equity",
+      "expected_raw_position": 3100400,
+      "units": "shares",
+      "status": "provisional_reconciliation",
+      "evidence": "Deep-ITM call quantity is 100 times the 31,004 short-leg quantity; interpreting it as contracts creates approximately 100 times fund AUM in delta. Requires Bloomberg unit confirmation."
+    }
+  ],
+  "pending_funds": {
+    "JEPI": {
+      "status": "eln_terms_required",
+      "required": ["Same-date ELN schedule", "Option-equivalent notional, not ELN carrying value", "Strikes and expiry ladder", "Issuer estimated SPX-equivalent unit delta/gamma document", "Same-date IV/skew and sensitivity ranges"],
+      "source_url": "https://am.jpmorgan.com/us/en/asset-management/adv/products/jpmorgan-equity-premium-income-etf-46641q332/"
+    },
+    "JEPQ": {
+      "status": "eln_terms_required",
+      "required": ["Same-date ELN schedule", "Option-equivalent notional, not the 20% ELN allocation limit", "Nasdaq call strikes and expiry ladder", "Issuer unit delta/gamma document and correct index convention", "Same-date IV/skew and sensitivity ranges"],
+      "source_url": "https://am.jpmorgan.com/us/en/asset-management/adv/products/jpmorgan-nasdaq-equity-premium-income-etf-jepq-46654q203"
+    },
+    "BUFR": {"status": "lookthrough_required", "source_url": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=BUFR"},
+    "BUFD": {"status": "lookthrough_required", "source_url": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=BUFD"},
+    "ACYN": {
+      "status": "autocallable_terms_required",
+      "required": ["Swap/option confirmation", "Basket levels and correlations", "Autocall dates and barriers", "Path-dependent valuation model"],
+      "source_url": "https://www.ftportfolios.com/retail/etf/etfsummary.aspx?Ticker=ACYN"
+    }
+  },
+  "source_notes": [
+    {"url": "https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/literature/fact-sheet/etfs/fs-jepq.pdf", "finding": "Issuer factsheet points to an ELN estimated SPX-equivalent unit delta/gamma document. Obtain that specific document before calibrating the missing overlays; exchange-traded options ON JEPI/JEPQ are a different exposure."},
+    {"url": "https://www.ftportfolios.com/Retail/Etf/EtfPriceHistory.aspx?Ticker=FNOV", "finding": "Same-date issuer NAV/history and holdings can disagree around the November reset. The evidence capture checks dates and holdings-net-value/NAV before using a child fund."}
+  ]
+}

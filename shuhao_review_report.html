@@ -1,0 +1,1692 @@
+<!doctype html><html lang='en'><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Project 10 data review</title><style>body{font:16px/1.6 system-ui,sans-serif;max-width:1200px;margin:40px auto;padding:0 24px;color:#182633}h1,h2{line-height:1.25}h2{margin-top:42px}table{border-collapse:collapse;font-size:13px;width:100%;display:block;overflow:auto}th,td{border:1px solid #d8dfe4;padding:9px 12px;text-align:left;vertical-align:top}th{background:#edf3f7}tr:nth-child(even){background:#fafbfd}code{background:#edf1f4;padding:2px 5px}a{color:#165a9c}details{margin:18px 0}.notice{padding:16px;background:#fff4d9;border-left:4px solid #ae7216}small{color:#52606b}@media print{body{max-width:none;margin:0;font-size:11px}table{display:table;font-size:9px}details>*{display:block}}</style>
+<h1>Project 10 data review and corrected research pipeline</h1>
+<p>Valuation date: 2026-11-20. Original files are retained. Run <code>python shuhao_review.py</code>.</p>
+<p class='notice'>research prototype; full Top-20 exposure and IV-response conclusions remain pending. All reported Greeks below are partial, assumption-dependent estimates.</p>
+<h2>Fund coverage</h2>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ticker</th>
+      <th>rank</th>
+      <th>aum_usd</th>
+      <th>status</th>
+      <th>n_records</th>
+      <th>aum_snapshot_verified</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JEPI</td>
+      <td>1</td>
+      <td>45,168,984,000.0000</td>
+      <td>eln_terms_required</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>JEPQ</td>
+      <td>2</td>
+      <td>40,419,164,000.0000</td>
+      <td>eln_terms_required</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BOXX</td>
+      <td>3</td>
+      <td>14,601,127,000.0000</td>
+      <td>analytic_box_only_size_still_unverified</td>
+      <td>8</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>QQQI</td>
+      <td>4</td>
+      <td>14,467,057,000.0000</td>
+      <td>priced_research_estimate</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>SPYI</td>
+      <td>5</td>
+      <td>12,195,136,000.0000</td>
+      <td>priced_research_estimate</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BUFR</td>
+      <td>6</td>
+      <td>10,729,497,000.0000</td>
+      <td>lookthrough_required</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>QYLD</td>
+      <td>7</td>
+      <td>7,740,906,000.0000</td>
+      <td>priced_research_estimate</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>DIVO</td>
+      <td>8</td>
+      <td>7,606,742,000.0000</td>
+      <td>priced_research_estimate</td>
+      <td>7</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>GPIX</td>
+      <td>9</td>
+      <td>6,386,987,000.0000</td>
+      <td>partial_or_expiry_pending</td>
+      <td>4</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>GPIQ</td>
+      <td>10</td>
+      <td>6,215,317,000.0000</td>
+      <td>partial_or_expiry_pending</td>
+      <td>4</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>HELO</td>
+      <td>11</td>
+      <td>4,717,612,000.0000</td>
+      <td>priced_research_estimate</td>
+      <td>13</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>KNG</td>
+      <td>12</td>
+      <td>3,355,024,000.0000</td>
+      <td>partial_or_expiry_pending</td>
+      <td>66</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BALT</td>
+      <td>13</td>
+      <td>3,288,899,000.0000</td>
+      <td>partial_missing_inputs</td>
+      <td>4</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>XYLD</td>
+      <td>14</td>
+      <td>3,187,283,000.0000</td>
+      <td>priced_research_estimate</td>
+      <td>2</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ACYN</td>
+      <td>15</td>
+      <td>2,821,687,000.0000</td>
+      <td>autocallable_terms_required</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>FTHI</td>
+      <td>16</td>
+      <td>2,420,448,000.0000</td>
+      <td>partial_or_expiry_pending</td>
+      <td>6</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>ACIO</td>
+      <td>17</td>
+      <td>2,247,165,000.0000</td>
+      <td>partial_or_expiry_pending</td>
+      <td>154</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>FNOV</td>
+      <td>18</td>
+      <td>2,203,959,000.0000</td>
+      <td>partial_or_expiry_pending</td>
+      <td>4</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>BUFD</td>
+      <td>19</td>
+      <td>2,181,165,000.0000</td>
+      <td>lookthrough_required</td>
+      <td>0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>SFLR</td>
+      <td>20</td>
+      <td>2,147,530,000.0000</td>
+      <td>priced_research_estimate</td>
+      <td>7</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Why records are held out</h2>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>status</th>
+      <th>records</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bloomberg_iv</td>
+      <td>145</td>
+    </tr>
+    <tr>
+      <td>expiry_or_roll_pending</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>zero_position</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <td>market_value_implied_iv</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>analytic_box_net_zero</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>missing_or_inconsistent_iv</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Snapshot and sizing checks</h2>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ticker</th>
+      <th>aum_usd</th>
+      <th>holdings_implied_nav_usd</th>
+      <th>nav_to_list_aum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JEPI</td>
+      <td>45,168,984,000.0000</td>
+      <td>38,081,636,830.8300</td>
+      <td>0.8431</td>
+    </tr>
+    <tr>
+      <td>JEPQ</td>
+      <td>40,419,164,000.0000</td>
+      <td>31,432,830,420.7200</td>
+      <td>0.7777</td>
+    </tr>
+    <tr>
+      <td>BOXX</td>
+      <td>14,601,127,000.0000</td>
+      <td>125,252,975.1800</td>
+      <td>0.0086</td>
+    </tr>
+    <tr>
+      <td>QQQI</td>
+      <td>14,467,057,000.0000</td>
+      <td>13,671,071,743.5200</td>
+      <td>0.9450</td>
+    </tr>
+    <tr>
+      <td>SPYI</td>
+      <td>12,195,136,000.0000</td>
+      <td>11,776,592,478.1300</td>
+      <td>0.9657</td>
+    </tr>
+    <tr>
+      <td>BUFR</td>
+      <td>10,729,497,000.0000</td>
+      <td>10,672,449,025.4200</td>
+      <td>0.9947</td>
+    </tr>
+    <tr>
+      <td>QYLD</td>
+      <td>7,740,906,000.0000</td>
+      <td>7,070,965,784.6400</td>
+      <td>0.9135</td>
+    </tr>
+    <tr>
+      <td>DIVO</td>
+      <td>7,606,742,000.0000</td>
+      <td>7,593,596,014.5400</td>
+      <td>0.9983</td>
+    </tr>
+    <tr>
+      <td>GPIX</td>
+      <td>6,386,987,000.0000</td>
+      <td>6,160,722,451.7700</td>
+      <td>0.9646</td>
+    </tr>
+    <tr>
+      <td>GPIQ</td>
+      <td>6,215,317,000.0000</td>
+      <td>5,881,607,059.8200</td>
+      <td>0.9463</td>
+    </tr>
+    <tr>
+      <td>HELO</td>
+      <td>4,717,612,000.0000</td>
+      <td>4,661,517,348.7300</td>
+      <td>0.9881</td>
+    </tr>
+    <tr>
+      <td>KNG</td>
+      <td>3,355,024,000.0000</td>
+      <td>3,420,924,508.6100</td>
+      <td>1.0196</td>
+    </tr>
+    <tr>
+      <td>BALT</td>
+      <td>3,288,899,000.0000</td>
+      <td>3,267,639,028.9000</td>
+      <td>0.9935</td>
+    </tr>
+    <tr>
+      <td>XYLD</td>
+      <td>3,187,283,000.0000</td>
+      <td>3,028,857,343.5100</td>
+      <td>0.9503</td>
+    </tr>
+    <tr>
+      <td>ACYN</td>
+      <td>2,821,687,000.0000</td>
+      <td>2,887,380,363.3700</td>
+      <td>1.0233</td>
+    </tr>
+    <tr>
+      <td>FTHI</td>
+      <td>2,420,448,000.0000</td>
+      <td>2,430,975,626.6800</td>
+      <td>1.0043</td>
+    </tr>
+    <tr>
+      <td>ACIO</td>
+      <td>2,247,165,000.0000</td>
+      <td>2,190,288,137.8900</td>
+      <td>0.9747</td>
+    </tr>
+    <tr>
+      <td>FNOV</td>
+      <td>2,203,959,000.0000</td>
+      <td>2,202,467,754.9000</td>
+      <td>0.9993</td>
+    </tr>
+    <tr>
+      <td>BUFD</td>
+      <td>2,181,165,000.0000</td>
+      <td>2,181,295,728.0500</td>
+      <td>1.0001</td>
+    </tr>
+    <tr>
+      <td>SFLR</td>
+      <td>2,147,530,000.0000</td>
+      <td>2,098,155,317.4700</td>
+      <td>0.9770</td>
+    </tr>
+  </tbody>
+</table>
+<h2>quoted iv live subset</h2>
+<p>145 live positions; partial live-option research estimate; excludes expiry/roll-pending legs and the five missing overlays. Zero-shock reconciliation: True.</p>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ticker</th>
+      <th>mm_dollar_gamma_1pct</th>
+      <th>mm_dollar_vega_1vol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ACIO</td>
+      <td>-56,433,277.1381</td>
+      <td>-587,828.1353</td>
+    </tr>
+    <tr>
+      <td>DIVO</td>
+      <td>5,505,071.5305</td>
+      <td>73,954.3768</td>
+    </tr>
+    <tr>
+      <td>FTHI</td>
+      <td>26,126,817.9931</td>
+      <td>579,325.1761</td>
+    </tr>
+    <tr>
+      <td>HELO</td>
+      <td>-3,627,578.9640</td>
+      <td>101,560.9877</td>
+    </tr>
+    <tr>
+      <td>QQQI</td>
+      <td>67,274,790.1059</td>
+      <td>1,602,174.4070</td>
+    </tr>
+    <tr>
+      <td>QYLD</td>
+      <td>249,675,961.8998</td>
+      <td>8,072,126.4548</td>
+    </tr>
+    <tr>
+      <td>SFLR</td>
+      <td>-15,788,440.6705</td>
+      <td>-4,216,228.1974</td>
+    </tr>
+    <tr>
+      <td>SPYI</td>
+      <td>96,729,507.2672</td>
+      <td>1,615,884.5471</td>
+    </tr>
+    <tr>
+      <td>XYLD</td>
+      <td>149,306,665.3857</td>
+      <td>3,367,491.1653</td>
+    </tr>
+  </tbody>
+</table>
+<details><summary>Spot ladder and correctly measured hedge trades</summary>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>shock</th>
+      <th>days_forward</th>
+      <th>mode</th>
+      <th>vol_mode</th>
+      <th>vol_shift</th>
+      <th>hedge_trade_usd</th>
+      <th>mm_dollar_gamma_1pct</th>
+      <th>mm_dollar_vega_1vol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-0.1000</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>3,347,410,633.7456</td>
+      <td>248,644,052.6629</td>
+      <td>5,992,630.8830</td>
+    </tr>
+    <tr>
+      <td>-0.0900</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>3,102,790,896.9516</td>
+      <td>258,808,536.4415</td>
+      <td>6,145,387.5896</td>
+    </tr>
+    <tr>
+      <td>-0.0800</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>2,846,415,615.6665</td>
+      <td>270,128,192.8697</td>
+      <td>6,319,825.2785</td>
+    </tr>
+    <tr>
+      <td>-0.0700</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>2,576,852,846.7180</td>
+      <td>283,190,949.2048</td>
+      <td>6,528,823.5793</td>
+    </tr>
+    <tr>
+      <td>-0.0600</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>2,291,976,738.1500</td>
+      <td>298,765,025.3526</td>
+      <td>6,788,119.0046</td>
+    </tr>
+    <tr>
+      <td>-0.0500</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>1,988,772,242.1681</td>
+      <td>317,848,199.1608</td>
+      <td>7,116,519.9547</td>
+    </tr>
+    <tr>
+      <td>-0.0400</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>1,663,096,043.9181</td>
+      <td>341,714,154.3456</td>
+      <td>7,535,850.7894</td>
+    </tr>
+    <tr>
+      <td>-0.0300</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>1,309,411,766.8942</td>
+      <td>371,928,665.9501</td>
+      <td>8,070,382.4260</td>
+    </tr>
+    <tr>
+      <td>-0.0200</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>920,551,942.5981</td>
+      <td>410,295,112.8486</td>
+      <td>8,745,458.6605</td>
+    </tr>
+    <tr>
+      <td>-0.0100</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>487,598,750.1293</td>
+      <td>458,689,454.2653</td>
+      <td>9,585,084.4815</td>
+    </tr>
+    <tr>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>518,769,517.4096</td>
+      <td>10,608,460.7821</td>
+    </tr>
+    <tr>
+      <td>0.0100</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-553,977,206.4613</td>
+      <td>591,590,768.7002</td>
+      <td>11,825,812.0190</td>
+    </tr>
+    <tr>
+      <td>0.0200</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-1,186,416,955.5418</td>
+      <td>677,212,520.7141</td>
+      <td>13,234,239.3245</td>
+    </tr>
+    <tr>
+      <td>0.0300</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-1,908,612,278.8692</td>
+      <td>774,406,606.4774</td>
+      <td>14,814,557.0268</td>
+    </tr>
+    <tr>
+      <td>0.0400</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-2,729,774,376.6374</td>
+      <td>880,564,069.0858</td>
+      <td>16,529,990.1102</td>
+    </tr>
+    <tr>
+      <td>0.0500</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-3,655,814,468.2446</td>
+      <td>991,837,044.3165</td>
+      <td>18,327,219.0018</td>
+    </tr>
+    <tr>
+      <td>0.0600</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-4,688,407,401.2332</td>
+      <td>1,103,480,448.0343</td>
+      <td>20,139,710.8503</td>
+    </tr>
+    <tr>
+      <td>0.0700</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-5,824,474,143.3815</td>
+      <td>1,210,307,285.4046</td>
+      <td>21,892,798.7233</td>
+    </tr>
+    <tr>
+      <td>0.0800</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-7,056,124,776.3608</td>
+      <td>1,307,163,237.3581</td>
+      <td>23,509,722.6338</td>
+    </tr>
+    <tr>
+      <td>0.0900</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-8,371,024,911.8995</td>
+      <td>1,389,354,146.9131</td>
+      <td>24,917,842.6901</td>
+    </tr>
+    <tr>
+      <td>0.1000</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-9,753,107,325.1704</td>
+      <td>1,452,998,019.8909</td>
+      <td>26,054,367.9976</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+<h2>quoted plus price implied live subset</h2>
+<p>155 live positions; partial live-option research estimate; excludes expiry/roll-pending legs and the five missing overlays. Zero-shock reconciliation: True.</p>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ticker</th>
+      <th>mm_dollar_gamma_1pct</th>
+      <th>mm_dollar_vega_1vol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ACIO</td>
+      <td>-56,433,277.1381</td>
+      <td>-587,828.1353</td>
+    </tr>
+    <tr>
+      <td>BALT</td>
+      <td>11,042,494.4094</td>
+      <td>1,154,286.9443</td>
+    </tr>
+    <tr>
+      <td>DIVO</td>
+      <td>5,505,071.5305</td>
+      <td>73,954.3768</td>
+    </tr>
+    <tr>
+      <td>FTHI</td>
+      <td>26,126,817.9931</td>
+      <td>579,325.1761</td>
+    </tr>
+    <tr>
+      <td>GPIQ</td>
+      <td>20,411,143.4434</td>
+      <td>311,978.8809</td>
+    </tr>
+    <tr>
+      <td>GPIX</td>
+      <td>26,155,241.7059</td>
+      <td>281,046.1056</td>
+    </tr>
+    <tr>
+      <td>HELO</td>
+      <td>-71,450,625.7016</td>
+      <td>-403,523.8686</td>
+    </tr>
+    <tr>
+      <td>QQQI</td>
+      <td>67,274,790.1059</td>
+      <td>1,602,174.4070</td>
+    </tr>
+    <tr>
+      <td>QYLD</td>
+      <td>249,675,961.8998</td>
+      <td>8,072,126.4548</td>
+    </tr>
+    <tr>
+      <td>SFLR</td>
+      <td>-15,788,440.6705</td>
+      <td>-4,216,228.1974</td>
+    </tr>
+    <tr>
+      <td>SPYI</td>
+      <td>96,729,507.2672</td>
+      <td>1,615,884.5471</td>
+    </tr>
+    <tr>
+      <td>XYLD</td>
+      <td>149,306,665.3857</td>
+      <td>3,367,491.1653</td>
+    </tr>
+  </tbody>
+</table>
+<details><summary>Spot ladder and correctly measured hedge trades</summary>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>shock</th>
+      <th>days_forward</th>
+      <th>mode</th>
+      <th>vol_mode</th>
+      <th>vol_shift</th>
+      <th>hedge_trade_usd</th>
+      <th>mm_dollar_gamma_1pct</th>
+      <th>mm_dollar_vega_1vol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-0.1000</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>3,838,593,139.1344</td>
+      <td>328,816,940.2308</td>
+      <td>9,451,044.2939</td>
+    </tr>
+    <tr>
+      <td>-0.0900</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>3,511,491,320.3305</td>
+      <td>336,734,522.3513</td>
+      <td>9,530,248.8955</td>
+    </tr>
+    <tr>
+      <td>-0.0800</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>3,175,737,856.4445</td>
+      <td>344,619,087.5386</td>
+      <td>9,594,407.3663</td>
+    </tr>
+    <tr>
+      <td>-0.0700</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>2,831,260,753.9069</td>
+      <td>352,861,803.1874</td>
+      <td>9,655,451.5753</td>
+    </tr>
+    <tr>
+      <td>-0.0600</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>2,477,500,126.9606</td>
+      <td>361,993,252.6422</td>
+      <td>9,728,629.4295</td>
+    </tr>
+    <tr>
+      <td>-0.0500</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>2,113,233,129.5354</td>
+      <td>372,770,476.4824</td>
+      <td>9,833,265.6601</td>
+    </tr>
+    <tr>
+      <td>-0.0400</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>1,736,292,834.5932</td>
+      <td>386,303,887.9754</td>
+      <td>9,993,565.6344</td>
+    </tr>
+    <tr>
+      <td>-0.0300</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>1,343,155,522.4214</td>
+      <td>404,198,471.3687</td>
+      <td>10,239,162.6039</td>
+    </tr>
+    <tr>
+      <td>-0.0200</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>928,416,160.0731</td>
+      <td>428,649,764.9361</td>
+      <td>10,604,899.9700</td>
+    </tr>
+    <tr>
+      <td>-0.0100</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>484,245,409.9973</td>
+      <td>462,411,019.6249</td>
+      <td>11,129,224.5656</td>
+    </tr>
+    <tr>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>508,555,350.2307</td>
+      <td>11,850,687.8567</td>
+    </tr>
+    <tr>
+      <td>0.0100</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-537,797,553.0559</td>
+      <td>570,007,412.0047</td>
+      <td>12,802,485.7348</td>
+    </tr>
+    <tr>
+      <td>0.0200</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-1,144,920,929.5764</td>
+      <td>648,902,210.7884</td>
+      <td>14,005,637.5657</td>
+    </tr>
+    <tr>
+      <td>0.0300</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-1,838,264,179.6028</td>
+      <td>745,910,531.4603</td>
+      <td>15,462,074.2843</td>
+    </tr>
+    <tr>
+      <td>0.0400</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-2,634,113,056.4222</td>
+      <td>859,711,360.9676</td>
+      <td>17,149,276.5064</td>
+    </tr>
+    <tr>
+      <td>0.0500</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-3,546,111,376.9611</td>
+      <td>986,768,920.8843</td>
+      <td>19,017,977.5802</td>
+    </tr>
+    <tr>
+      <td>0.0600</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-4,583,272,462.2609</td>
+      <td>1,121,493,811.2705</td>
+      <td>20,993,833.8486</td>
+    </tr>
+    <tr>
+      <td>0.0700</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-5,748,394,008.1875</td>
+      <td>1,256,767,782.1001</td>
+      <td>22,983,077.3120</td>
+    </tr>
+    <tr>
+      <td>0.0800</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-7,037,154,012.2399</td>
+      <td>1,384,727,898.8555</td>
+      <td>24,881,301.2033</td>
+    </tr>
+    <tr>
+      <td>0.0900</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-8,438,029,504.4439</td>
+      <td>1,497,661,305.2670</td>
+      <td>26,583,928.0645</td>
+    </tr>
+    <tr>
+      <td>0.1000</td>
+      <td>0.0000</td>
+      <td>parallel</td>
+      <td>sticky_strike</td>
+      <td>0.0000</td>
+      <td>-9,933,031,014.2416</td>
+      <td>1,588,858,016.9914</td>
+      <td>27,996,680.6058</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+<h2>Issuer look-through progress</h2><pre style='white-space:pre-wrap'>
+{
+  &quot;source_funds_captured&quot;: 26,
+  &quot;source_funds_reconciled&quot;: 24,
+  &quot;source_conflicts&quot;: [
+    {
+      &quot;ticker&quot;: &quot;DNOV&quot;,
+      &quot;note&quot;: &quot;holdings total conflicts with same-date historical net assets; do not splice into base book&quot;
+    },
+    {
+      &quot;ticker&quot;: &quot;FNOV&quot;,
+      &quot;note&quot;: &quot;holdings total conflicts with same-date historical net assets; do not splice into base book&quot;
+    }
+  ],
+  &quot;parents&quot;: [
+    {
+      &quot;parent&quot;: &quot;BUFR&quot;,
+      &quot;included_in_bloomberg_aggregate&quot;: false,
+      &quot;note&quot;: &quot;separate issuer-source partial preview; overlap and snapshot differences prevent automatic addition&quot;,
+      &quot;children&quot;: [
+        {
+          &quot;ticker&quot;: &quot;FSEP&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.6604494907807104,
+          &quot;parent_weight_pct&quot;: 8.37,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270917C00007620&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 3.047341927644653
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270917P00761690&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.1806424769373587
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270917C00888740&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.15656270636977213
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270917P00685520&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.2243498205274567
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;FJAN&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.622654091642917,
+          &quot;parent_weight_pct&quot;: 8.32,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270115C00006920&quot;,
+              &quot;status&quot;: &quot;unpriceable_mark&quot;,
+              &quot;note&quot;: &quot;no IV root in the explicit (0, 500%) bracket&quot;
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270115P00691660&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.277463355494265
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270115C00792160&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.19429574944618644
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270115P00622490&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.36190359334446187
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 3
+        },
+        {
+          &quot;ticker&quot;: &quot;FAPR&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.6824392967120411,
+          &quot;parent_weight_pct&quot;: 8.33,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270416C00007100&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 3.5415878409356742
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270416P00710140&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.224742602902557
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270416C00817800&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.16613649557020027
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270416P00639130&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.280352936243688
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;FOCT&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.7197257911636086,
+          &quot;parent_weight_pct&quot;: 8.44,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 271015C00007630&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 2.2163039431035085
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 271015P00763250&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.18364029009681154
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 271015C00894530&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.15637875124639672
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 271015P00686930&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.22408245276641253
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;FDEC&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.6925233787246218,
+          &quot;parent_weight_pct&quot;: 8.32,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 261218C00006810&quot;,
+              &quot;status&quot;: &quot;unpriceable_mark&quot;,
+              &quot;note&quot;: &quot;no IV root in the explicit (0, 500%) bracket&quot;
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 261218P00680590&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.33216067168055874
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 261218C00780980&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.2212906570466446
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 261218P00612530&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.4494045202229177
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 3
+        },
+        {
+          &quot;ticker&quot;: &quot;FJUL&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.6514024780698106,
+          &quot;parent_weight_pct&quot;: 8.31,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270716C00007430&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 2.5692851221847506
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270716P00743290&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.19577243144869544
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270716C00868310&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.15552495386683587
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270716P00668960&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.24120910077128893
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;FAUG&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.6341363428808332,
+          &quot;parent_weight_pct&quot;: 8.29,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270820C00007660&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 2.873156788088212
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270820P00765720&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.1789435639350658
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270820C00897190&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.1541739992052172
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270820P00689150&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.22541818588291374
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;FMAR&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.7581955195888014,
+          &quot;parent_weight_pct&quot;: 8.49,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270319C00006490&quot;,
+              &quot;status&quot;: &quot;unpriceable_mark&quot;,
+              &quot;note&quot;: &quot;mark outside strict BSM price bounds or IV not identifiable at a bound&quot;
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270319P00648570&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.2782122444959112
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270319C00759930&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.18398982730351138
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270319P00583710&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.33582350861224064
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 3
+        },
+        {
+          &quot;ticker&quot;: &quot;FJUN&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.6405564805557016,
+          &quot;parent_weight_pct&quot;: 8.28,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270617C00007470&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 3.828740413567607
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270617P00746740&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.18707368532287139
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270617C00869580&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.1567224094494693
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270617P00672070&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.240301044022638
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;FNOV&quot;,
+          &quot;overlap_with_selected_fund&quot;: true,
+          &quot;status&quot;: &quot;snapshot_conflict_or_missing&quot;
+        },
+        {
+          &quot;ticker&quot;: &quot;FFEB&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.668359034985975,
+          &quot;parent_weight_pct&quot;: 8.33,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270219C00006890&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 4.940297738211177
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270219P00689430&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.2561451612888071
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270219C00792910&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.18073441614868033
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270219P00620490&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.32419595576931337
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;FMAY&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.6064286335525589,
+          &quot;parent_weight_pct&quot;: 8.26,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270521C00007390&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 3.6345734842676967
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270521P00739170&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.19706535422005345
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270521C00865490&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.15802884843375578
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270521P00665250&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.25143911213626596
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        }
+      ],
+      &quot;status&quot;: &quot;partial_issuer_preview&quot;,
+      &quot;priced_legs&quot;: 41,
+      &quot;partial_greeks&quot;: {
+        &quot;mm_dollar_gamma_1pct&quot;: 22801021.95061401,
+        &quot;mm_dollar_vega_1vol&quot;: 5704172.005431883
+      },
+      &quot;parent_weight_with_some_priced_child_legs_pct&quot;: 91.74,
+      &quot;parent_weight_with_all_four_child_legs_priced_pct&quot;: 66.61
+    },
+    {
+      &quot;parent&quot;: &quot;BUFD&quot;,
+      &quot;included_in_bloomberg_aggregate&quot;: false,
+      &quot;note&quot;: &quot;separate issuer-source partial preview; overlap and snapshot differences prevent automatic addition&quot;,
+      &quot;children&quot;: [
+        {
+          &quot;ticker&quot;: &quot;DOCT&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.41934083552000606,
+          &quot;parent_weight_pct&quot;: 8.41,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 271015C00007560&quot;,
+              &quot;status&quot;: &quot;unpriceable_mark&quot;,
+              &quot;note&quot;: &quot;mark outside strict BSM price bounds or IV not identifiable at a bound&quot;
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 271015P00725090&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.20004718436856483
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 271015C00871480&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.15827924352284148
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 271015P00534280&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.30266014444235784
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 3
+        },
+        {
+          &quot;ticker&quot;: &quot;DMAR&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.39355354115073204,
+          &quot;parent_weight_pct&quot;: 8.47,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270319C00006480&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 4.943417327819236
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270319P00616140&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.3092894141032795
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270319P00454000&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.4763987185781875
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270319C00733340&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.22540741599389374
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;DJUN&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.4990832893623308,
+          &quot;parent_weight_pct&quot;: 8.28,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270617C00007460&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 3.8307302319042575
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270617P00709400&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.21525464153166826
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270617C00848300&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.16013151906128667
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270617P00522720&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.34563924913357064
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;DDEC&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.4213490652528506,
+          &quot;parent_weight_pct&quot;: 8.28,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 261218C00006800&quot;,
+              &quot;status&quot;: &quot;unpriceable_mark&quot;,
+              &quot;note&quot;: &quot;no IV root in the explicit (0, 500%) bracket&quot;
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 261218P00646560&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.39027692115613
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 261218P00476410&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.7056288854125683
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 261218C00761990&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.22936482776793327
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 3
+        },
+        {
+          &quot;ticker&quot;: &quot;DJAN&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.4048616817144778,
+          &quot;parent_weight_pct&quot;: 8.29,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270115C00006910&quot;,
+              &quot;status&quot;: &quot;unpriceable_mark&quot;,
+              &quot;note&quot;: &quot;no IV root in the explicit (0, 500%) bracket&quot;
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270115P00657080&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.31950958405507746
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270115C00772100&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.20245229535797696
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270115P00484160&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.5565551234515063
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 3
+        },
+        {
+          &quot;ticker&quot;: &quot;DAUG&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.40610592574266174,
+          &quot;parent_weight_pct&quot;: 8.3,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270820C00007650&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 2.8744152738069926
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270820P00727430&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.20354903103867117
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270820C00871160&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.1576579451182724
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270820P00536000&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.31588446690597877
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;DFEB&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.4078966574484127,
+          &quot;parent_weight_pct&quot;: 8.35,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270219C00006880&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 4.942367714449219
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270219P00654960&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.290187590312272
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270219P00482600&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.4807968019052794
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270219C00771270&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.19394220627651837
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;DSEP&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.429530436086315,
+          &quot;parent_weight_pct&quot;: 8.35,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270917C00007540&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 3.0592149311650783
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270917P00723610&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.20368564334649886
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270917C00872590&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.15962122171015786
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270917P00533180&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.3103671596530507
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;DMAY&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.472416470926207,
+          &quot;parent_weight_pct&quot;: 8.28,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270521C00007380&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 3.6362640595099145
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270521P00702210&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.22550414335523483
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270521C00839400&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.16132399512817774
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270521P00517420&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.3634771560861716
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;DAPR&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.55118875388311,
+          &quot;parent_weight_pct&quot;: 8.34,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270416C00007090&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 3.54307519167089
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270416P00674630&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.25297008629320816
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270416C00795640&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.1755907071794425
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270416P00497100&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.4046429614768871
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        },
+        {
+          &quot;ticker&quot;: &quot;DNOV&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;snapshot_conflict_or_missing&quot;
+        },
+        {
+          &quot;ticker&quot;: &quot;DJUL&quot;,
+          &quot;overlap_with_selected_fund&quot;: false,
+          &quot;status&quot;: &quot;child_terms_available&quot;,
+          &quot;ownership_fraction&quot;: 0.37561371781711284,
+          &quot;parent_weight_pct&quot;: 8.3,
+          &quot;leg_checks&quot;: [
+            {
+              &quot;identifier&quot;: &quot;4SPY 270716C00007420&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 2.5702597844450787
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270716P00706130&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.2193473565285689
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270716C00844380&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.16083210644156132
+            },
+            {
+              &quot;identifier&quot;: &quot;4SPY 270716P00520300&quot;,
+              &quot;status&quot;: &quot;issuer_price_implied_iv&quot;,
+              &quot;iv&quot;: 0.33780106538546895
+            }
+          ],
+          &quot;n_priceable_legs&quot;: 4
+        }
+      ],
+      &quot;status&quot;: &quot;partial_issuer_preview&quot;,
+      &quot;priced_legs&quot;: 41,
+      &quot;partial_greeks&quot;: {
+        &quot;mm_dollar_gamma_1pct&quot;: -2812415.6277018134,
+        &quot;mm_dollar_vega_1vol&quot;: -505005.390058332
+      },
+      &quot;parent_weight_with_some_priced_child_legs_pct&quot;: 91.65,
+      &quot;parent_weight_with_all_four_child_legs_priced_pct&quot;: 66.67
+    }
+  ]
+}
+</pre>
+<h2>Missing overlay inputs</h2>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>fund</th>
+      <th>status</th>
+      <th>next_inputs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JEPI</td>
+      <td>eln_terms_required</td>
+      <td>Same-date ELN schedule; Option-equivalent notional, not ELN carrying value; Strikes and expiry ladder; Issuer estimated SPX-equivalent unit delta/gamma document; Same-date IV/skew and sensitivity ranges</td>
+    </tr>
+    <tr>
+      <td>JEPQ</td>
+      <td>eln_terms_required</td>
+      <td>Same-date ELN schedule; Option-equivalent notional, not the 20% ELN allocation limit; Nasdaq call strikes and expiry ladder; Issuer unit delta/gamma document and correct index convention; Same-date IV/skew and sensitivity ranges</td>
+    </tr>
+    <tr>
+      <td>BUFR</td>
+      <td>lookthrough_required</td>
+      <td>same-date child holdings and ownership fractions</td>
+    </tr>
+    <tr>
+      <td>BUFD</td>
+      <td>lookthrough_required</td>
+      <td>same-date child holdings and ownership fractions</td>
+    </tr>
+    <tr>
+      <td>ACYN</td>
+      <td>autocallable_terms_required</td>
+      <td>Swap/option confirmation; Basket levels and correlations; Autocall dates and barriers; Path-dependent valuation model</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Assumptions and provenance</h2><p>Flat rate and missing dividends remain explicit model assumptions. Market-value implied IVs are reconstructed estimates. Dealer exposure assumes MM = -ETF. Same-day expired legs remain pending until reset/settlement timing is known. BOXX is verified only through the four-leg risk identity.</p>
+<p>See <code>shuhao_review_results.json</code> for every leg status, source URL, recovery failure and input SHA-256.</p></html>
