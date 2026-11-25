@@ -1,0 +1,21 @@
+FUND,REFERENCE_AUM_USD,ORIGINAL_RECORDS,ORIGINAL_FLAT20_ROWS,ORIGINAL_FLAT20_NONZERO_FUTURE_LEGS,ORIGINAL_NUMERIC_IV_NONZERO_FUTURE_LEGS,NEW_PRICED_LEGS,NEW_MISSING_IV_LEGS,NEW_EXPIRY_DAY_PENDING,STATUS,REMAINING_INPUTS,ORIGINAL_MM_DOLLAR_GAMMA_1PCT,NEW_MM_DOLLAR_GAMMA_1PCT,CHANGE_MM_DOLLAR_GAMMA_1PCT,ORIGINAL_MM_DOLLAR_VEGA_1VOL,NEW_MM_DOLLAR_VEGA_1VOL,CHANGE_MM_DOLLAR_VEGA_1VOL
+JEPI,45168984000,0,0,0,0,0,0,0,missing_derivative_book,ELN option-equivalent book/terms missing,,,,,,
+JEPQ,40419164000,0,0,0,0,0,0,0,missing_derivative_book,ELN option-equivalent book/terms missing,,,,,,
+BOXX,14601127000,8,8,8,0,0,0,0,analytic_box_net_zero_units_still_unconfirmed,box net zero conditional on exact terms/units,0,0,0,0,0,0
+QQQI,14467057000,2,0,0,2,1,1,0,partial_or_conditional,1 positive-tenor legs lack clean IV,67274790.1059,41782854.076,-25491936.0299,1602174.40702,1004216.28211,-597958.124909
+SPYI,12195136000,2,0,0,2,2,0,0,partial_or_conditional,all nonzero positive-tenor supplied legs have IV; units/rates/dividends still provisional,96729507.2672,96728646.1331,-861.134089828,1615884.54711,1615858.88766,-25.6594488104
+BUFR,10729497000,0,0,0,0,0,0,0,missing_derivative_book,same-date child books and ownership fractions missing,,,,,,
+QYLD,7740906000,2,1,0,1,1,0,0,partial_or_conditional,all nonzero positive-tenor supplied legs have IV; units/rates/dividends still provisional,249675961.9,249676958.626,996.726433814,8072126.45478,8072124.42693,-2.02784893941
+DIVO,7606742000,7,0,0,1,1,0,0,partial_or_conditional,all nonzero positive-tenor supplied legs have IV; units/rates/dividends still provisional,5505071.53049,5509421.99158,4350.46109437,73954.3768212,71752.2089669,-2202.16785435
+GPIX,6386987000,4,4,3,0,0,3,1,no_eligible_risk_yet,3 positive-tenor legs lack clean IV; 1 expiry-day legs need valuation/settlement/roll times,17303350.4816,,,160587.205156,,
+GPIQ,6215317000,4,4,3,0,0,3,1,no_eligible_risk_yet,3 positive-tenor legs lack clean IV; 1 expiry-day legs need valuation/settlement/roll times,6346546.19444,,,57943.7596181,,
+HELO,4717612000,13,1,1,8,8,1,0,partial_or_conditional,1 positive-tenor legs lack clean IV,-56307334.7431,-7220670.00389,49086664.7392,-187095.208325,128714.235975,315809.4443
+KNG,3355024000,66,15,0,0,0,0,66,no_eligible_risk_yet,66 expiry-day legs need valuation/settlement/roll times,0,,,0,,
+BALT,3288899000,4,4,4,0,0,4,0,no_eligible_risk_yet,4 positive-tenor legs lack clean IV,47600.8678813,,,1069.38936062,,
+XYLD,3187283000,2,1,0,1,1,0,0,partial_or_conditional,all nonzero positive-tenor supplied legs have IV; units/rates/dividends still provisional,149306665.386,149304772.051,-1893.3347533,3367491.16526,3367494.88768,3.72241663001
+ACYN,2821687000,0,0,0,0,0,0,0,missing_derivative_book,"autocallable terms, notionals, correlations and model missing",,,,,,
+FTHI,2420448000,6,1,0,5,5,0,1,partial_or_conditional,1 expiry-day legs need valuation/settlement/roll times,26126817.9931,26126803.9899,-14.0031318031,579325.176102,579322.07627,-3.0998311945
+ACIO,2247165000,154,3,0,118,113,5,1,partial_or_conditional,5 positive-tenor legs lack clean IV; 1 expiry-day legs need valuation/settlement/roll times,-56433277.1381,-57636477.6224,-1203200.48429,-587828.13531,-610809.595806,-22981.4604964
+FNOV,2203959000,4,4,0,0,0,0,4,no_eligible_risk_yet,4 expiry-day legs need valuation/settlement/roll times,0,,,0,,
+BUFD,2181165000,0,0,0,0,0,0,0,missing_derivative_book,same-date child books and ownership fractions missing,,,,,,
+SFLR,2147530000,7,0,0,7,7,0,0,partial_or_conditional,all nonzero positive-tenor supplied legs have IV; units/rates/dividends still provisional,-15788440.6705,-17292822.2905,-1504381.62,-4216228.19738,-4214539.98215,1688.21522738
