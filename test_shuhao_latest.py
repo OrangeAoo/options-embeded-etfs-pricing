@@ -141,3 +141,63 @@ def test_scaled_gamma_matches_hedge_trade_and_zero_shock():
     assert result["rows"][1]["dealer_hedge_trade_usd"] == pytest.approx(gamma_flow,rel=1e-4)
     assert latest.ladder(book,config,days_forward=30)["status"] == "roll_or_settlement_inputs_required"
     assert latest.ladder(book,config,vol_mode="sticky_delta")["status"] == "surface_coordinate_and_tenor_definitions_unconfirmed"
+
+
+def structured_fixture():
+    row = {"AS_OF_DATE": pd.Timestamp("2026-11-20"), "SECURITY": "OPTION",
+           "EXPIRE_DT": pd.Timestamp("2026-12-18"), "STRIKE_PX": 100., "PUT_CALL": "Call",
+           "IVOL (%)": 20., "IVOL_DATE": pd.Timestamp("2026-11-20"), "EXER_TYP": "American",
+           "UNDERLYING_SECURITY": "DUK US Equity", "FIELD": "ivol(mid)", "sheet": "DUK US Equity", "row": 2}
+    book = pd.DataFrame([{"ticker": f, "holding_id": "OPTION", "underlying": "DUK"} for f in ["DIVO", "ACIO"]])
+    return row, book
+
+
+def test_one_structured_quote_joins_two_funds_without_duplicate_positions():
+    row, book = structured_fixture()
+    result = latest.structured_records([row, dict(row, row=3)], book, "2026-11-20")
+    assert result["structured_audit"]["unique_option_securities"] == 1
+    assert set(result["unique"]) == {("DIVO", "OPTION"), ("ACIO", "OPTION")}
+    assert result["unique"][("DIVO", "OPTION")]["ivol(mid)"] == 20.  # percent retained, not scaled twice
+    assert len(result["responses"]) == 2
+
+
+@pytest.mark.parametrize("change", [
+    {"IVOL_DATE": pd.Timestamp("2026-11-19")}, {"AS_OF_DATE": pd.Timestamp("2026-11-19")},
+    {"IVOL (%)": "#N/A"}, {"IVOL (%)": 0}, {"EXPIRE_DT": None},
+    {"UNDERLYING_SECURITY": "SPX Index"}, {"FIELD": "unrecognised"},
+])
+def test_structured_quotes_reject_stale_invalid_or_misjoined_data(change):
+    row, book = structured_fixture()
+    with pytest.raises(ValueError):
+        latest.structured_records([dict(row, **change)], book, "2026-11-20")
+
+
+def test_structured_conflicting_quotes_do_not_choose_one_silently():
+    row, book = structured_fixture()
+    with pytest.raises(ValueError, match="conflicting"):
+        latest.structured_records([row, dict(row, **{"IVOL (%)": 21.})], book, "2026-11-20")
+
+
+def test_structured_surface_preserves_requested_date_without_inventing_quote_date():
+    _, book = structured_fixture()
+    row = {"AS_OF_DATE": pd.Timestamp("2026-11-20"), "SECURITY": "SPX Index", "UNDERLYING_SECURITY": "SPX Index",
+           "TENOR": "30DAY", "MONEYNESS (%)": 100., "IVOL (%)": 15.,
+           "FIELD": "30DAY_IMPVOL_100%MNY_DF", "sheet": "SPX Index", "row": 2}
+    result = latest.structured_records([row], book, "2026-11-20")
+    assert result["vol_nodes"][0]["quote_date"] is None
+    assert result["vol_nodes"][0]["moneyness"] == 1.
+    with pytest.raises(ValueError, match="coordinate"):
+        latest.structured_records([dict(row, TENOR="60DAY")], book, "2026-11-20")
+
+
+def test_committed_clean_workbook_matches_139_positions_and_135_surface_nodes():
+    review = latest.previous.load_review()
+    result = latest.structured_iv_data(latest.ROOT / "data/sheets/Project10_IV_By_Underlying.xlsx", review.book, "2026-11-20")
+    audit = result["structured_audit"]
+    assert (audit["asset_sheets"], audit["total_observations"], audit["standard_surface_nodes"],
+            audit["unique_option_securities"], audit["matched_fund_position_records"]) == (70, 273, 135, 138, 139)
+    assert not audit["unmatched_option_securities"]
+    assert not result["conflicts"]
+    for row in review.book.itertuples():
+        if (row.ticker, row.holding_id) in result["unique"]:
+            assert latest.validate_quote(row, result["unique"][(row.ticker, row.holding_id)], "2026-11-20") == "same_date_terms_matched_iv"

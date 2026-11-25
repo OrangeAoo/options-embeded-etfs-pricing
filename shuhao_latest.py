@@ -220,6 +220,102 @@ def merge_responses(records):
     return result, conflicts
 
 
+def underlying_key(security):
+    return normalize_underlying(str(security).replace(" Equity", "").replace(" Index", ""))
+
+
+def structured_records(records, book, target):
+    """Import the English, static IV workbook without reading the old BQL tabs.
+
+    One security quote may belong to several funds. Join to each position once;
+    never multiply positions by the number of source rows or source tabs.
+    Raw IVOL (%) remains in percent until prepare_book applies iv_scale once.
+    """
+    quotes, nodes, sheet_counts = {}, {}, Counter()
+    for row in records:
+        source = f"{row['sheet']}!A{row['row']}"
+        if asdate(row.get("AS_OF_DATE")) != target:
+            raise ValueError(f"structured IV snapshot mismatch: {source}")
+        value = number(row.get("IVOL (%)"))
+        if value is None or value <= 0:
+            raise ValueError(f"structured IV must be numeric positive percent: {source}")
+        security, field = row.get("SECURITY"), row.get("FIELD")
+        underlying = row.get("UNDERLYING_SECURITY")
+        if not isinstance(security, str) or not isinstance(underlying, str):
+            raise ValueError(f"missing security/underlying: {source}")
+        sheet_counts[row["sheet"]] += 1
+        match = re.fullmatch(r"(\w+)_IMPVOL_([\d.]+)%MNY_DF", str(field))
+        if match:
+            moneyness = number(row.get("MONEYNESS (%)"))
+            if (row.get("TENOR") != match[1] or moneyness is None
+                    or not np.isclose(moneyness, float(match[2]), rtol=0, atol=1e-10)
+                    or security != underlying):
+                raise ValueError(f"surface field/coordinate mismatch: {source}")
+            node = {"ticker": security, "field": field, "requested_date": target,
+                    "value": value, "raw_value": value, "quote_date": asdate(row.get("IVOL_DATE")),
+                    "source": source, "tenor": match[1], "moneyness": moneyness / 100}
+            key = (security, field)
+            if key in nodes and nodes[key] != node:
+                raise ValueError(f"duplicate surface node: {source}")
+            nodes[key] = node
+        elif field == "ivol(mid)":
+            q = {"id": security, "returned_id": security, "requested_date": target,
+                 "expire_dt": asdate(row.get("EXPIRE_DT")), "strike_px": number(row.get("STRIKE_PX")),
+                 "put_call": row.get("PUT_CALL"), "ivol(mid)": value,
+                 "ivol(mid).DATE": asdate(row.get("IVOL_DATE")), "exer_typ": row.get("EXER_TYP"),
+                 "underlying_security": underlying, "sheet": row["sheet"],
+                 "source_cell": f"A{row['row']}"}
+            if (q["expire_dt"] is None or q["strike_px"] is None or q["strike_px"] <= 0
+                    or q["put_call"] not in {"Call", "Put"}
+                    or q["ivol(mid).DATE"] != target or q["exer_typ"] not in {"American", "European"}):
+                raise ValueError(f"missing/invalid option terms or IV date: {source}")
+            if security in quotes:
+                terms = ["expire_dt", "strike_px", "put_call", "ivol(mid)", "ivol(mid).DATE", "exer_typ", "underlying_security"]
+                if any(quotes[security][k] != q[k] for k in terms):
+                    raise ValueError(f"conflicting structured option quote: {security}")
+            else:
+                quotes[security] = q
+        else:
+            raise ValueError(f"unrecognised IV FIELD at {source}: {field}")
+    responses = []
+    for position in book.itertuples():
+        if position.holding_id not in quotes:
+            continue
+        q = quotes[position.holding_id]
+        if underlying_key(q["underlying_security"]) != position.underlying:
+            raise ValueError(f"option underlying mismatch: {position.holding_id}")
+        responses.append(dict(q, fund=position.ticker))
+    unique, conflicts = merge_responses(responses)
+    return {"input_format": "structured", "responses": responses, "unique": unique,
+            "conflicts": conflicts, "nonresponses": [], "surface_requests": [], "surface_nodes": [],
+            "vol_nodes": list(nodes.values()), "per_sheet_returned": dict(Counter(q["sheet"] for q in quotes.values())),
+            "structured_audit": {"asset_sheets": len(sheet_counts), "total_observations": sum(sheet_counts.values()),
+                                 "observations_per_asset_sheet": dict(sheet_counts),
+                                 "standard_surface_nodes": len(nodes), "unique_option_securities": len(quotes),
+                                 "matched_fund_position_records": len(unique),
+                                 "unmatched_option_securities": sorted(set(quotes) - {k[1] for k in unique}),
+                                 "legacy_iv_fallback_enabled": False,
+                                 "bid_ask_included": False}}
+
+
+def structured_iv_data(path, book, target):
+    w = openpyxl.load_workbook(path, data_only=True, read_only=True)
+    records = []
+    try:
+        for sheet in w:
+            rows = sheet.iter_rows(values_only=True)
+            headers = next(rows, ())
+            required = {"AS_OF_DATE", "SECURITY", "IVOL (%)", "UNDERLYING_SECURITY", "FIELD"}
+            if not required <= set(headers) or len(set(headers)) != len(headers):
+                raise ValueError(f"invalid structured IV headers: {sheet.title}")
+            for r, values in enumerate(rows, 2):
+                if any(x is not None for x in values):
+                    records.append(dict(zip(headers, values), sheet=sheet.title, row=r))
+    finally:
+        w.close()
+    return structured_records(records, book, target)
+
+
 def validate_quote(row, quote, target):
     if quote.get("conflicting_response"):
         return "conflicting_duplicate_response"
@@ -403,7 +499,8 @@ def prepare_book(review, data, cached, config):
         elif quote_status.endswith("mismatch") or quote_status in {"conflicting_duplicate_response", "strike_mismatch"}: status = "new_terms_conflict_needs_reconciliation"
         else:
             if quote_status == "same_date_terms_matched_iv":
-                rec["selected_iv"], rec["iv_source"] = quote["ivol(mid)"] * config["iv_scale"], "latest_same_date_BQL_ivol_mid"
+                rec["selected_iv"] = quote["ivol(mid)"] * config["iv_scale"]
+                rec["iv_source"] = "structured_same_date_ivol_mid" if cached.get("input_format") == "structured" else "latest_same_date_BQL_ivol_mid"
             elif config["allow_legacy_observed_iv"] and number(row.iv_pct) is not None and row.iv_pct > 0:
                 rec["selected_iv"], rec["iv_source"] = row.iv_pct / 100, "legacy_observed_IV_quote_timestamp_unverified"
             elif config["allow_market_value_implied_iv"] and row.pricing_status == "market_value_implied_iv":
@@ -423,7 +520,7 @@ def prepare_book(review, data, cached, config):
             rec["mm_dollar_gamma_1pct"] = -rec["etf_dollar_gamma_1pct"]
             rec["mm_dollar_vega_1vol"] = -rec["etf_dollar_vega_1vol"]
             bid, ask = rec["latest_bid"], rec["latest_ask"]
-            rec["quote_spread_status"] = "missing_bid_or_ask"
+            rec["quote_spread_status"] = "not_in_structured_iv_workbook" if cached.get("input_format") == "structured" else "missing_bid_or_ask"
             if bid is not None and ask is not None:
                 rec["quote_spread_status"] = "crossed_market" if ask < bid else "noncrossed"
                 if ask >= bid:
@@ -552,7 +649,16 @@ def run(config_path=CONFIG, output_prefix="shuhao_latest"):
     review = previous.load_review()
     if config["valuation_date"] != str(review.market.valuation_date): raise ValueError("snapshot mismatch")
     data = extractor_data(ROOT / config["extractor"], config["valuation_date"])
-    cached = bql_data(ROOT / config["iv_workbook"])
+    structured = config.get("iv_input_format") == "structured"
+    if structured:
+        if config["allow_legacy_observed_iv"] or config["allow_market_value_implied_iv"] or config["iv_scale"] != .01:
+            raise ValueError("structured IV requires percent scaling and disabled legacy/inversion fallbacks")
+        cached = structured_iv_data(ROOT / config["iv_workbook"], review.book, config["valuation_date"])
+        # Both surface nodes and option IV now come exclusively from the clean workbook.
+        # The extractor remains a holdings/history source only.
+        data["vol_nodes"] = cached["vol_nodes"]
+    else:
+        cached = bql_data(ROOT / config["iv_workbook"])
     book, spots, dividends = prepare_book(review, data, cached, config)
     priced = book.loc[book.latest_pricing_status == "priced_research_estimate"].copy()
     coverage = []
@@ -565,7 +671,7 @@ def run(config_path=CONFIG, output_prefix="shuhao_latest"):
         status = "analytic_box_net_zero_units_still_unconfirmed" if only_box else "partial_or_conditional" if len(ready) else "missing_derivative_book" if subset.empty else "no_eligible_risk_yet"
         row = {"ticker": etf.ticker, "rank": int(etf.rank), "reference_aum_usd": etf.aum_usd,
                "status": status, "records": len(subset), "nonzero_records": int(subset.position.ne(0).sum()),
-               "priced_legs": len(ready), "latest_iv_legs": int(ready.iv_source.eq("latest_same_date_BQL_ivol_mid").sum()),
+               "priced_legs": len(ready), "latest_iv_legs": int(ready.latest_quote_status.eq("same_date_terms_matched_iv").sum()),
                "pending_0DTE_or_IV": pending, "counts": states,
                "fund_total_verified": False}
         for key in RISK: row[key] = float(ready[key].sum()) if len(ready) else 0.0 if only_box else None
@@ -582,11 +688,14 @@ def run(config_path=CONFIG, output_prefix="shuhao_latest"):
         "top20_membership": review.etfs.ticker.tolist(), "universe_reference_aum_usd": float(review.etfs.aum_usd.sum()),
         "aum_coverage": aum_coverage(review.etfs,book.ticker,priced.ticker),
         "inputs": [workbook_info(ROOT / config[k]) for k in ["extractor", "iv_workbook"]],
+        "iv_input_format": config.get("iv_input_format", "raw_bql"),
         "data_audit": {"holdings": data["holdings"], "duplicate_holdings_sheets": data["duplicate_holdings_sheets"],
+                       "structured_iv": cached.get("structured_audit"),
+                       "legacy_iv_fallback_enabled": config["allow_legacy_observed_iv"],
                        "submitted_contract_ids_in_extractor": data["submitted_contract_ids"],
                        "historical_field_errors": [x for x in data["history"] if x["value"] is None],
                        "bdh_numeric_vol_nodes": sum(x["value"] is not None for x in data["vol_nodes"]),
-                       "bdh_quote_dates_independently_saved": 0,
+                       "bdh_quote_dates_independently_saved": sum(x.get("quote_date") is not None for x in data["vol_nodes"]),
                        "bql_surface_requests": len(cached["surface_requests"]), "bql_surface_successful_iv_nodes": len(cached["surface_nodes"]),
                        "bql_surface_responses": dict(Counter("requesting" if "Requesting" in str(x["response"]) else "field_error" if "Invalid Parameter" in str(x["response"]) else str(x["response"]) for x in cached["surface_requests"])),
                        "per_sheet_returned_option_responses": cached["per_sheet_returned"],
@@ -610,7 +719,7 @@ def run(config_path=CONFIG, output_prefix="shuhao_latest"):
                         "unit_conventions": "inherited contracts plus two explicitly documented provisional FNOV share overrides; not independently verified",
                         "surface_basis_verified": bool(config["confirmed_surface_basis"]),
                         "surface_tenor_daycounts_verified": config["confirmed_tenor_daycounts"],
-                        "source_quote_times": "BQL saves quote DATE; exact close time and pricing-source metadata still absent",
+                        "source_quote_times": "Option IVOL_DATE retained from returned data; standard BDH nodes retain requested AS_OF_DATE only. Exact quote times and pricing-source metadata absent.",
                         "known_counterparty_assumption": "MM=-ETF; conditional opposite side, not observed total dealer inventory",
                         "missing_funds": "JEPI/JEPQ ELN terms/notionals and Vega; ACYN path-dependent terms; BUFR/BUFD same-date child books and ownership fractions",
                         "American_unknown_style": "BSM exercise-unconfirmed where no validated returned style is available"},
@@ -644,18 +753,27 @@ def run(config_path=CONFIG, output_prefix="shuhao_latest"):
 
 def write_report(report, path):
     money = lambda x: "missing" if x is None else f"{x / 1e6:,.3f}"
+    structured = report["data_audit"]["structured_iv"]
+    input_description = (
+        f"IV input: `data/sheets/Project10_IV_By_Underlying.xlsx`, **{structured['asset_sheets']} asset sheets**, "
+        f"**{structured['total_observations']} observations**: **{structured['standard_surface_nodes']} standard BDH surface nodes** "
+        f"and **{structured['unique_option_securities']} unique option IV quotes**. "
+        "The original extractor supplies holdings/history only. The raw BQL workbook is preserved but not read by this run."
+        if structured else f"Saved BDH nodes: {report['data_audit']['bdh_numeric_vol_nodes']}; raw BQL surface nodes: {report['data_audit']['bql_surface_successful_iv_nodes']}."
+    )
     lines = ["# Latest saved Bloomberg data: preliminary Top 20 calculation", "",
              "Run `python shuhao_latest.py`; test with `pytest tests test_shuhao_review.py test_shuhao_latest.py`.", "",
              "Original teammate code, notebooks and runtime CSVs remain unchanged. Membership is the existing 20 funds; no re-screening or new ranking was applied.", "",
              "## What the latest files actually contain", "",
-             f"Snapshot requested: **{report['valuation_date']}**. The BQL surface sheet has **{report['data_audit']['bql_surface_successful_iv_nodes']} successful numeric IV nodes**. The saved BDH grid has **{report['data_audit']['bdh_numeric_vol_nodes']} numeric nodes** on SPX/NDX/RTY; see the audit for requests still pending or invalid.",
-             f"Alternative copied option tabs contain {report['data_audit']['per_sheet_returned_option_responses']}; after merging identical records there are **{report['data_audit']['deduplicated_option_responses']} unique returned option records**. A duplicate tab never creates a second position.", "",
+             f"Snapshot requested: **{report['valuation_date']}**. " + input_description, "",
+             "One DUK option quote is held by both DIVO and ACIO. Its one market quote joins each fund's position once; it does not create another market observation.", "",
              f"Same-date IV with matched ID, strike, C/P and expiry: **{report['data_audit']['same_date_terms_matched_iv_records']}** original position records. IV source counts: `{report['iv_source_counts']}`. Model counts: `{report['model_counts']}`.", "",
+             f"Available-position MM $Gamma per 1%: **${report['priced_subset_sum']['mm_dollar_gamma_1pct'] / 1e6:,.3f} million**. MM $Vega per vol point: **${report['priced_subset_sum']['mm_dollar_vega_1vol'] / 1e6:,.3f} million**. ETF exposures have the opposite signs. These are conditional partial-book subtotals.", "",
              f"Direct option records exist for **{report['aum_coverage']['funds_with_direct_option_records']} funds**, representing **{report['aum_coverage']['direct_book_reference_aum_share']:.1%}** of the fixed reference-universe AUM. Missing overlay/look-through books: {', '.join(report['aum_coverage']['funds_requiring_missing_overlay_or_lookthrough'])}. This is a fund-membership AUM classification, not fully observed derivative-risk coverage. No inferred book is priced.", "",
              "JEPI/JEPQ/ACYN holdings exports still contain equity, treasury and cash rather than complete ELN/OTC option exposure. The extraction workbook's actual contract-ID query column remains empty. Issuer ELN tables dated 23 Nov are kept separate from this 20 Nov calculation.", "",
              "## Calculation and conventions", "",
              "1. Join the fixed Top 20 book to returned responses by fund and actual security ID; validate returned terms and IV DATE. Reject text errors, incomplete requests and contradictory duplicate values.",
-             "2. Prefer the latest matched IV; otherwise retain a separately labelled original observed IV when available. Market-value IV inversion is disabled by default. Percent IV is multiplied by 0.01 exactly once.",
+             f"2. Use matched same-date option IV. Legacy IV fallback enabled: **{report['data_audit']['legacy_iv_fallback_enabled']}**. Market-value IV inversion is disabled by default. Percent IV is multiplied by 0.01 exactly once.",
              "3. Use European BSM for confirmed European options, a 400-step American CRR tree for confirmed American options, and explicitly label unconfirmed exercise style. Interest/dividend inputs remain provisional.",
              "4. ETF $Gamma per 1% = signed contracts × multiplier × Gamma × S² × 0.01. ETF $Vega per vol point = signed contracts × multiplier × Vega × 0.01. Vega here is the derivative per 1.00 volatility before scaling. MM = −ETF.",
              "5. Recognise a complete same-expiry European box analytically at net zero delta/gamma/vega. This is not a claim of zero risk on each box leg or verified position sizes.", "",
@@ -674,16 +792,16 @@ def write_report(report, path):
               "## Remaining data, in order", ""]
     lines.extend(f"{i}. {x}" for i, x in enumerate(report["required_next_data"], 1))
     lines += ["", "## Specific positive-tenor positions still missing usable IV", "",
-              "These remain missing in the risk subtotal. The saved request issues and full returned option records are retained in the JSON for diagnosis.", "",
+              "These remain missing in the risk subtotal. The clean workbook contains only successful observations, so an absent quote is not proof that Bloomberg has no data. Returned option records and source cells are retained in the JSON.", "",
               "| Fund | Security ID | Latest response status |", "|---|---|---|"]
     for x in report["leg_audit"]:
         if x["latest_pricing_status"] == "missing_usable_iv":
             lines.append(f"| {x['ticker']} | {x['holding_id']} | {x['latest_quote_status']} |")
     lines += ["", "## Reproducibility and review", "",
-              "Raw workbooks are byte-preserved under `data/sheets/Shuhao_Latest_*.xlsx`. The JSON output records their SHA256, per-leg provenance, failures, model, unit status, all scenario rows and protected original-file hashes. The calculation asserts that protected original files are unchanged.",
+              "The cleaned workbook and original raw workbooks are byte-preserved under `data/sheets/`. The JSON records the two active input files and SHA256, per-leg provenance, model, unit status, scenario rows and protected original-file hashes. The calculation asserts that protected original files are unchanged. `shuhao_structured_iv_comparison.json` compares this run with the prior 145-leg result and identifies the six removed legacy-IV fallback positions.",
               "The reference Top 20 AUM is retained for membership/context. The three new scalar AUM requests lack independent quote timestamps and are not used to silently re-rank funds. A fund's AUM associated with some priced positions is not the fraction of fund AUM whose derivative risk is fully observed.",
               "Rates are illustrative flat 4%; missing indicative dividends use zero explicitly. Option quantity units and exact valuation/roll timestamps remain unconfirmed. Thus none of these estimates is marked final or fully observed.", "",
-              f"Saved position values versus current same-date bid/ask mid identify **{report['data_audit']['possible_100x_unit_mismatches']} possible 100x unit/mark mismatches**. They are flagged per leg; the code does not silently rewrite quantities from a ratio that may also reflect mark-time differences.", "",
+              "The clean IV workbook excludes bid/ask/last prices. Price-mid and quantity-ratio diagnostics are therefore unavailable in this run; zero newly flagged mismatches does not validate position units. Prior raw-data diagnostics remain in the earlier Git commit.", "",
               "## AI assistance and course constraint", "", report["course_policy_note"], "", "## Sources", ""]
     lines.extend("- " + x for x in report["sources"])
     path.write_text("\n".join(lines) + "\n")

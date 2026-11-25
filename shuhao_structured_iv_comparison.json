@@ -1,0 +1,113 @@
+{
+  "baseline_commit": "2f7181a8c8508e39ad572ad56c0befa5cacaebc2",
+  "baseline_results_sha256": "3f56c824d2ff36bbd6a01e5d509293e2790d368bf2a8f7fd5a10671874f61368",
+  "structured_results_sha256": "4723c2372609f9cd4bd5ff3c6a417ba6cbf63cef05fd342fdb2387dd527f1c56",
+  "valuation_date": "2026-11-20",
+  "reason": "IV now comes exclusively from the cleaned workbook. Six undated legacy-IV fallbacks are excluded; pricing models and shared-cohort inputs are unchanged.",
+  "before_priced_positions": 145,
+  "after_priced_positions": 139,
+  "shared_positions": 139,
+  "shared_cohort_max_absolute_difference": {
+    "selected_iv": 0.0,
+    "price": 0.0,
+    "delta": 0.0,
+    "gamma": 0.0,
+    "vega": 0.0,
+    "etf_dollar_gamma_1pct": 0.0,
+    "etf_dollar_vega_1vol": 0.0,
+    "mm_dollar_gamma_1pct": 0.0,
+    "mm_dollar_vega_1vol": 0.0
+  },
+  "before_priced_subset_sum": {
+    "etf_dollar_gamma_1pct": -513702905.34890676,
+    "etf_dollar_vega_1vol": -10639020.733302219,
+    "mm_dollar_gamma_1pct": 513702905.34890676,
+    "mm_dollar_vega_1vol": 10639020.733302219
+  },
+  "after_priced_subset_sum": {
+    "etf_dollar_gamma_1pct": -486979486.95104176,
+    "etf_dollar_vega_1vol": -10014133.427633228,
+    "mm_dollar_gamma_1pct": 486979486.95104176,
+    "mm_dollar_vega_1vol": 10014133.427633228
+  },
+  "after_minus_before": {
+    "etf_dollar_gamma_1pct": 26723418.397864997,
+    "etf_dollar_vega_1vol": 624887.3056689911,
+    "mm_dollar_gamma_1pct": -26723418.397864997,
+    "mm_dollar_vega_1vol": -624887.3056689911
+  },
+  "excluded_legacy_iv_positions": [
+    {
+      "ticker": "ACIO",
+      "holding_id": "ADI US L1826C470000 Equity",
+      "previous_iv_source": "legacy_observed_IV_quote_timestamp_unverified",
+      "previous_selected_iv": 0.5599799999999999,
+      "previous_risk": {
+        "etf_dollar_gamma_1pct": -21797.665031679502,
+        "etf_dollar_vega_1vol": -936.3703589159365,
+        "mm_dollar_gamma_1pct": 21797.665031679502,
+        "mm_dollar_vega_1vol": 936.3703589159365
+      }
+    },
+    {
+      "ticker": "ACIO",
+      "holding_id": "AMGN US L1826C430000 Equity",
+      "previous_iv_source": "legacy_observed_IV_quote_timestamp_unverified",
+      "previous_selected_iv": 0.32638,
+      "previous_risk": {
+        "etf_dollar_gamma_1pct": -234970.916473638,
+        "etf_dollar_vega_1vol": -5883.053742801773,
+        "mm_dollar_gamma_1pct": 234970.916473638,
+        "mm_dollar_vega_1vol": 5883.053742801773
+      }
+    },
+    {
+      "ticker": "ACIO",
+      "holding_id": "COST US A1527B108000 Equity",
+      "previous_iv_source": "legacy_observed_IV_quote_timestamp_unverified",
+      "previous_selected_iv": 0.27862,
+      "previous_risk": {
+        "etf_dollar_gamma_1pct": -297268.4243376552,
+        "etf_dollar_vega_1vol": -12707.386273374295,
+        "mm_dollar_gamma_1pct": 297268.4243376552,
+        "mm_dollar_vega_1vol": 12707.386273374295
+      }
+    },
+    {
+      "ticker": "ACIO",
+      "holding_id": "COST US L0426B112000 Equity",
+      "previous_iv_source": "legacy_observed_IV_quote_timestamp_unverified",
+      "previous_selected_iv": 0.26303,
+      "previous_risk": {
+        "etf_dollar_gamma_1pct": -659956.1678231471,
+        "etf_dollar_vega_1vol": -6658.180250726885,
+        "mm_dollar_gamma_1pct": 659956.1678231471,
+        "mm_dollar_vega_1vol": 6658.180250726885
+      }
+    },
+    {
+      "ticker": "ACIO",
+      "holding_id": "TXN US L1826C360000 Equity",
+      "previous_iv_source": "legacy_observed_IV_quote_timestamp_unverified",
+      "previous_selected_iv": 0.5569700000000001,
+      "previous_risk": {
+        "etf_dollar_gamma_1pct": -16880.75179325426,
+        "etf_dollar_vega_1vol": -721.2548633865399,
+        "mm_dollar_gamma_1pct": 16880.75179325426,
+        "mm_dollar_vega_1vol": 721.2548633865399
+      }
+    },
+    {
+      "ticker": "QQQI",
+      "holding_id": "NDX US L1826A296250 Index",
+      "previous_iv_source": "legacy_observed_IV_quote_timestamp_unverified",
+      "previous_selected_iv": 0.30578,
+      "previous_risk": {
+        "etf_dollar_gamma_1pct": -25492544.4724056,
+        "etf_dollar_vega_1vol": -597981.060179784,
+        "mm_dollar_gamma_1pct": 25492544.4724056,
+        "mm_dollar_vega_1vol": 597981.060179784
+      }
+    }
+  ]
+}

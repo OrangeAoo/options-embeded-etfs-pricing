@@ -1,7 +1,8 @@
 {
   "valuation_date": "2026-11-20",
   "extractor": "data/sheets/Shuhao_Latest_Bloomberg_20261120.xlsx",
-  "iv_workbook": "data/sheets/Shuhao_Latest_IV_20261120.xlsx",
+  "iv_workbook": "data/sheets/Project10_IV_By_Underlying.xlsx",
+  "iv_input_format": "structured",
   "rate": 0.04,
   "rate_status": "illustrative_flat_rate_not_a_collected_SOFR_OIS_curve",
   "american_tree_steps": 400,
@@ -9,7 +10,7 @@
   "confirmed_surface_basis": null,
   "confirmed_tenor_daycounts": false,
   "surface_tenor_days_assumption": {"30DAY": 30, "60DAY": 60, "3MTH": 90, "6MTH": 180, "12MTH": 365},
-  "allow_legacy_observed_iv": true,
+  "allow_legacy_observed_iv": false,
   "allow_market_value_implied_iv": false,
   "sources": [
     "Derivatives - Project 10.docx: position-level IV, BSM/Black, dollar gamma per 1%, dollar vega per vol point, MM=-ETF, spot/time ladders",

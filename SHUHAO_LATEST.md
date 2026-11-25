@@ -6,10 +6,13 @@ Original teammate code, notebooks and runtime CSVs remain unchanged. Membership 
 
 ## What the latest files actually contain
 
-Snapshot requested: **2026-11-20**. The BQL surface sheet has **0 successful numeric IV nodes**. The saved BDH grid has **135 numeric nodes** on SPX/NDX/RTY; see the audit for requests still pending or invalid.
-Alternative copied option tabs contain {'BQL逐腿 (2)': 135, 'BQL逐腿': 68}; after merging identical records there are **140 unique returned option records**. A duplicate tab never creates a second position.
+Snapshot requested: **2026-11-20**. IV input: `data/sheets/Project10_IV_By_Underlying.xlsx`, **70 asset sheets**, **273 observations**: **135 standard BDH surface nodes** and **138 unique option IV quotes**. The original extractor supplies holdings/history only. The raw BQL workbook is preserved but not read by this run.
 
-Same-date IV with matched ID, strike, C/P and expiry: **139** original position records. IV source counts: `{'latest_same_date_BQL_ivol_mid': 139, 'legacy_observed_IV_quote_timestamp_unverified': 6}`. Model counts: `{'American_CRR': 116, 'European_BSM': 23, 'BSM_exercise_unconfirmed': 6}`.
+One DUK option quote is held by both DIVO and ACIO. Its one market quote joins each fund's position once; it does not create another market observation.
+
+Same-date IV with matched ID, strike, C/P and expiry: **139** original position records. IV source counts: `{'structured_same_date_ivol_mid': 139}`. Model counts: `{'American_CRR': 116, 'European_BSM': 23}`.
+
+Available-position MM $Gamma per 1%: **$486.979 million**. MM $Vega per vol point: **$10.014 million**. ETF exposures have the opposite signs. These are conditional partial-book subtotals.
 
 Direct option records exist for **15 funds**, representing **47.8%** of the fixed reference-universe AUM. Missing overlay/look-through books: ACYN, BUFD, BUFR, JEPI, JEPQ. This is a fund-membership AUM classification, not fully observed derivative-risk coverage. No inferred book is priced.
 
@@ -18,7 +21,7 @@ JEPI/JEPQ/ACYN holdings exports still contain equity, treasury and cash rather t
 ## Calculation and conventions
 
 1. Join the fixed Top 20 book to returned responses by fund and actual security ID; validate returned terms and IV DATE. Reject text errors, incomplete requests and contradictory duplicate values.
-2. Prefer the latest matched IV; otherwise retain a separately labelled original observed IV when available. Market-value IV inversion is disabled by default. Percent IV is multiplied by 0.01 exactly once.
+2. Use matched same-date option IV. Legacy IV fallback enabled: **False**. Market-value IV inversion is disabled by default. Percent IV is multiplied by 0.01 exactly once.
 3. Use European BSM for confirmed European options, a 400-step American CRR tree for confirmed American options, and explicitly label unconfirmed exercise style. Interest/dividend inputs remain provisional.
 4. ETF $Gamma per 1% = signed contracts × multiplier × Gamma × S² × 0.01. ETF $Vega per vol point = signed contracts × multiplier × Vega × 0.01. Vega here is the derivative per 1.00 volatility before scaling. MM = −ETF.
 5. Recognise a complete same-expiry European box analytically at net zero delta/gamma/vega. This is not a claim of zero risk on each box leg or verified position sizes.
@@ -32,7 +35,7 @@ All risk columns below are USD millions. They are available-position subtotals, 
 | JEPI | 0 | 0 | missing | missing | missing_derivative_book |
 | JEPQ | 0 | 0 | missing | missing | missing_derivative_book |
 | BOXX | 0 | 0 | 0.000 | 0.000 | analytic_box_net_zero_units_still_unconfirmed |
-| QQQI | 2 | 1 | 67.275 | 1.602 | partial_or_conditional |
+| QQQI | 1 | 1 | 41.783 | 1.004 | partial_or_conditional |
 | SPYI | 2 | 2 | 96.729 | 1.616 | partial_or_conditional |
 | BUFR | 0 | 0 | missing | missing | missing_derivative_book |
 | QYLD | 1 | 1 | 249.677 | 8.072 | partial_or_conditional |
@@ -45,7 +48,7 @@ All risk columns below are USD millions. They are available-position subtotals, 
 | XYLD | 1 | 1 | 149.305 | 3.367 | partial_or_conditional |
 | ACYN | 0 | 0 | missing | missing | missing_derivative_book |
 | FTHI | 5 | 5 | 26.127 | 0.579 | partial_or_conditional |
-| ACIO | 118 | 113 | -56.406 | -0.584 | partial_or_conditional |
+| ACIO | 113 | 113 | -57.636 | -0.611 | partial_or_conditional |
 | FNOV | 0 | 0 | missing | missing | no_eligible_risk_yet |
 | BUFD | 0 | 0 | missing | missing | missing_derivative_book |
 | SFLR | 7 | 7 | -17.293 | -4.215 | partial_or_conditional |
@@ -73,11 +76,12 @@ No SPX-equivalent total, OI-normalised result or observed street inventory is cl
 
 ## Specific positive-tenor positions still missing usable IV
 
-These remain missing in the risk subtotal. The saved request issues and full returned option records are retained in the JSON for diagnosis.
+These remain missing in the risk subtotal. The clean workbook contains only successful observations, so an absent quote is not proof that Bloomberg has no data. Returned option records and source cells are retained in the JSON.
 
 | Fund | Security ID | Latest response status |
 |---|---|---|
-| HELO | SPY US W3026C727000 Equity | iv_not_numeric_positive |
+| HELO | SPY US W3026C727000 Equity | no_returned_response |
+| QQQI | NDX US L1826A296250 Index | no_returned_response |
 | GPIX | BBG026QTQBX3 Equity | no_returned_response |
 | GPIX | BBG026LL6RS8 Equity | no_returned_response |
 | GPIX | BBG026F9PYX0 Equity | no_returned_response |
@@ -88,14 +92,19 @@ These remain missing in the risk subtotal. The saved request issues and full ret
 | BALT | BBG025KVD0Y3 Equity | no_returned_response |
 | BALT | BBG025KVCTY1 Equity | no_returned_response |
 | BALT | BBG025KVCV30 Equity | no_returned_response |
+| ACIO | COST US A1527B108000 Equity | no_returned_response |
+| ACIO | COST US L0426B112000 Equity | no_returned_response |
+| ACIO | AMGN US L1826C430000 Equity | no_returned_response |
+| ACIO | TXN US L1826C360000 Equity | no_returned_response |
+| ACIO | ADI US L1826C470000 Equity | no_returned_response |
 
 ## Reproducibility and review
 
-Raw workbooks are byte-preserved under `data/sheets/Shuhao_Latest_*.xlsx`. The JSON output records their SHA256, per-leg provenance, failures, model, unit status, all scenario rows and protected original-file hashes. The calculation asserts that protected original files are unchanged.
+The cleaned workbook and original raw workbooks are byte-preserved under `data/sheets/`. The JSON records the two active input files and SHA256, per-leg provenance, model, unit status, scenario rows and protected original-file hashes. The calculation asserts that protected original files are unchanged. `shuhao_structured_iv_comparison.json` compares this run with the prior 145-leg result and identifies the six removed legacy-IV fallback positions.
 The reference Top 20 AUM is retained for membership/context. The three new scalar AUM requests lack independent quote timestamps and are not used to silently re-rank funds. A fund's AUM associated with some priced positions is not the fraction of fund AUM whose derivative risk is fully observed.
 Rates are illustrative flat 4%; missing indicative dividends use zero explicitly. Option quantity units and exact valuation/roll timestamps remain unconfirmed. Thus none of these estimates is marked final or fully observed.
 
-Saved position values versus current same-date bid/ask mid identify **0 possible 100x unit/mark mismatches**. They are flagged per leg; the code does not silently rewrite quantities from a ratio that may also reflect mark-time differences.
+The clean IV workbook excludes bid/ask/last prices. Price-mid and quantity-ratio diagnostics are therefore unavailable in this run; zero newly flagged mismatches does not validate position units. Prior raw-data diagnostics remain in the earlier Git commit.
 
 ## AI assistance and course constraint
 
